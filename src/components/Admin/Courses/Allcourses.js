@@ -2,8 +2,20 @@ import { FaRegEdit } from "react-icons/fa";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa6";
+import { useGetAllCoursesQuery } from "../../../features/courses/coursesApi";
+import { Link } from "react-router-dom";
 
 const Allcourses = () => {
+  const { data: courses, isLoading, isError } = useGetAllCoursesQuery();
+
+  if (isLoading && isError) {
+    return (
+      <div className="px-4 sm:px-6 lg:px-8 section-padding mt-10 wrapper min-h-[calc(90vh-5rem)]">
+        <h2 className="text-4xl">Is Loading</h2>
+      </div>
+    );
+  }
+
   return (
     <div className="px-4 sm:px-6 lg:px-8 section-padding mt-10 wrapper min-h-[calc(90vh-5rem)]">
       <div className=" mx-auto">
@@ -12,7 +24,9 @@ const Allcourses = () => {
             <h1 className="text-xl font-semibold text-gray-900">All Courses</h1>
             <h5 className="text-sm font-semibold text-white bg-indigo-600 px-4 py-2 rounded-md cursor-pointer flex justify-center items-center gap-1">
               {" "}
-              <span><FaPlus/></span>
+              <span>
+                <FaPlus />
+              </span>
               <span> Add Courses</span>
             </h5>
           </div>
@@ -119,101 +133,144 @@ const Allcourses = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200 bg-white">
-                    <tr>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">1</div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">php</div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">
-                            jon doe
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">web</div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">50$</div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">50h</div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">200</div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium  text-gray-900">
-                            <IoMdAddCircleOutline />
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">
-                            <IoMdAddCircleOutline />
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">
-                            <IoMdAddCircleOutline />
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">
-                            <IoMdAddCircleOutline />
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">
-                            <IoMdAddCircleOutline />
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">
-                            <IoMdAddCircleOutline />
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3  text-xl  sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-gray-900">
-                            <FaRegEdit />
-                          </div>
-                        </div>
-                      </td>
-                      <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
-                        <div className="flex items-center">
-                          <div className="font-medium text-red-300 cursor-pointer ">
-                            <RiDeleteBin5Line />
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
+                    {courses?.length > 0 &&
+                      courses?.map((course, i) => (
+                        <tr>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                {i + 1}
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                {course.title}
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                {course.instructor_name}
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                {course.category?.name}
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                {course.price}
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                {course.duration}
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                {course.students}
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium  text-gray-900">
+                                <Link
+                                  to={`/dashboard/course-add-video/${course._id}`}
+                                >
+                                  {" "}
+                                  <IoMdAddCircleOutline />
+                                </Link>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                <Link
+                                  to={`/dashboard/course-requirement-added/${course._id}`}
+                                >
+                                  {" "}
+                                  <IoMdAddCircleOutline />
+                                </Link>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                <Link to={`/dashboard/course-include-added/${course._id}`}>
+                                  <IoMdAddCircleOutline />
+                                </Link>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                <Link
+                                  to={`/dashboard/course-learns-added/${course._id}`}
+                                >
+                                  <IoMdAddCircleOutline />
+                                </Link>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                <Link to="/">
+                                  {" "}
+                                  <IoMdAddCircleOutline />
+                                </Link>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                <Link to="/">
+                                  {" "}
+                                  <IoMdAddCircleOutline />
+                                </Link>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3  text-xl  sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-gray-900">
+                                <button>
+                                  {" "}
+                                  <FaRegEdit />
+                                </button>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
+                            <div className="flex items-center">
+                              <div className="font-medium text-red-300 cursor-pointer ">
+                                <button>
+                                  {" "}
+                                  <RiDeleteBin5Line />
+                                </button>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
                   </tbody>
                 </table>
               </div>

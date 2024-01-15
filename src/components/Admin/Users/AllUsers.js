@@ -12,7 +12,7 @@ const AllUsers = () => {
 
   const [updateUserRole, { data, error: updateError }] =
     useUpdateUserRoleMutation();
-  console.log(data);
+ 
 
   const handleUpdateRole = (id) => {
     setError("");

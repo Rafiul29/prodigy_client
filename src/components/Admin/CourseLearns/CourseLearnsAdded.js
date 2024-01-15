@@ -1,8 +1,23 @@
 import React, { useState } from "react";
 import TextInput from "../../ui/TextInput";
+import { useParams } from "react-router-dom";
+import { useLearnAddedMutation } from "../../../features/courses/coursesApi";
 
 const CourseLearns = () => {
   const [title, setTitle] = useState("");
+  const {cid}=useParams();
+  const [learnAdded, { data:courseLearn,isLoading }] = useLearnAddedMutation();
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    learnAdded({
+      cid,
+      data:{
+        title,
+      }
+    })
+    setTitle("");
+  }
   return (
     <section className="pt-6 mt-20 pb-16 min-h-[calc(100vh-5rem)]">
       <div className="max-w-4xl mx-auto px-5 lg:px-0">
@@ -16,7 +31,7 @@ const CourseLearns = () => {
             </p>
           </div>
           <div className="mt-5 md:mt-0 md:col-span-2">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="shadow overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
                   <div className="grid   grid-cols-6 gap-6">
@@ -32,7 +47,7 @@ const CourseLearns = () => {
                 </div>
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button
-                    // disabled={isLoading}
+                    disabled={isLoading}
                     type="submit"
                     className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500"
                   >

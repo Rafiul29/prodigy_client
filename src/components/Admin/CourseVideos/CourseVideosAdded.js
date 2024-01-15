@@ -1,14 +1,40 @@
 import React, { useState } from "react";
 import TextInput from "../../ui/TextInput";
+import { useVideoAddedMutation } from "../../../features/courses/coursesApi";
+import { useParams } from "react-router-dom";
 
 const CourseVideoAdded = () => {
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [description, setDescription] = useState("");
-  const [link, setLink] = useState("");
-  const [thumbnail, setThumbnail] = useState("");
-  const [date, setDate] = useState("");
-  const [duration, setDuration] = useState("");
+  const [module, setModule] = useState("");
+  const [name, setName] = useState("");
+  const [video_link, setVideo_Link] = useState("");
+
+  const [videoAdded, { data:courseVideo }] = useVideoAddedMutation();
+
+
+  const resetForm = () => {
+    setModule("");
+    setName("");
+    setVideo_Link("");
+  };
+  const { cid } = useParams();
+  console.log(cid);
+
+  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+   
+    videoAdded({
+      cid,
+      data:{
+        module,
+        name,
+        video_link
+      }
+    });
+
+    resetForm();
+  };
 
   return (
     <section className="pt-6 mt-20 pb-16 min-h-[calc(100vh-5rem)]">
@@ -23,7 +49,7 @@ const CourseVideoAdded = () => {
             </p>
           </div>
           <div className="mt-5 md:mt-0 md:col-span-2">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="shadow overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
                   <div className="grid   grid-cols-6 gap-6">
@@ -31,8 +57,8 @@ const CourseVideoAdded = () => {
                       <TextInput
                         type="text"
                         title="Module number"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        value={module}
+                        onChange={(e) => setModule(e.target.value)}
                       />
                     </div>
 
@@ -40,16 +66,16 @@ const CourseVideoAdded = () => {
                       <TextInput
                         type="text"
                         title="Video title"
-                        value={author}
-                        onChange={(e) => setAuthor(e.target.value)}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                       />
                     </div>
                     <div className="col-span-6">
                       <TextInput
                         type="text"
                         title="Video link"
-                        value={author}
-                        onChange={(e) => setAuthor(e.target.value)}
+                        value={video_link}
+                        onChange={(e) => setVideo_Link(e.target.value)}
                       />
                     </div>
                   </div>

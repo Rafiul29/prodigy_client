@@ -1,8 +1,24 @@
 import React, { useState } from "react";
 import TextInput from "../../ui/TextInput";
+import { useParams } from "react-router-dom";
+import { useIncludesAddMutation } from "../../../features/courses/coursesApi";
 
 const CoursesIncludeAdded = () => {
   const [title, setTitle] = useState("");
+  const [includesAdd, { data:courseIncudes,isLoading }] = useIncludesAddMutation();
+
+  const {cid}=useParams();
+
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    includesAdd({
+      cid,
+      data:{
+        title
+      }
+    })
+    setTitle("");
+  }
 
   return (
     <section className="pt-6 mt-20 pb-16 min-h-[calc(100vh-5rem)]">
@@ -17,7 +33,7 @@ const CoursesIncludeAdded = () => {
             </p>
           </div>
           <div className="mt-5 md:mt-0 md:col-span-2">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="shadow overflow-hidden sm:rounded-md">
                 <div className="px-4 py-5 bg-white sm:p-6">
                   <div className="grid   grid-cols-6 gap-6">

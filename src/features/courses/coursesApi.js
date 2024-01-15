@@ -38,13 +38,32 @@ export const coursesApi = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    
+
+    // course video api
+    //course video added
+    videoAdded: builder.mutation({
+      query: ({cid,data}) => ({
+        url:`/private/videos/add/${cid}`,
+        method: "POST",
+        body: data,
+      }),
+    }),
+
+    // courseVideoDeleted: builder.mutation({
+    //   query: ({cid,data}) => ({
+    //     url: `/courses/private/learn/delete/${cid}`,
+    //     method: "DELETE",
+    //     body:data
+    //   }),
+    // }),
 
     // course lean api
     // add course lean
-    courseLeanAdd: builder.mutation({
-      query: (data) => ({
-        url: `/courses/private/learn/add`,
-        method: "PUT",
+    learnAdded: builder.mutation({
+      query: ({cid,data}) => ({
+        url:`/private/learns/add/${cid}`,
+        method: "POST",
         body: data,
       }),
     }),
@@ -59,39 +78,39 @@ export const coursesApi = apiSlice.injectEndpoints({
     
     // course include
     // add curse includes
-    courseIncludesAdd: builder.mutation({
-      query: (data) => ({
-        url: `/courses/private/includes/add`,
-        method: "PUT",
+    includesAdd: builder.mutation({
+      query: ({cid,data}) => ({
+        url: `/private/includes/add/${cid}`,
+        method: "POST",
         body: data,
       }),
     }),
     // course inclue delete
-    courseIncludesDelete: builder.mutation({
-      query: (data) => ({
-        url: `/courses/private/includes/delete`,
-        method: "DELETE",
-        body: data,
-      }),
-    }),
+    // IncludesDelete: builder.mutation({
+    //   query: (data) => ({
+    //     url: `/private/includes/delete`,
+    //     method: "DELETE",
+    //     body: data,
+    //   }),
+    // }),
 
     // course requirement
     // course requirement added
-    courseRequirementAdd: builder.mutation({
-      query: (data) => ({
-        url: `/courses/private/requirement/add`,
-        method: "PUT",
+    requirementAdded: builder.mutation({
+      query: ({cid,data}) => ({
+        url: `/private/requirements/add/${cid}`,
+        method: "POST",
         body: data,
       }),
     }),
     // course requirement delete
-    courseRequirementDelete: builder.mutation({
-      query: (data) => ({
-        url: `/courses/private/requirement/add`,
-        method: "DELETE",
-        body: data,
-      }),
-    }),
+    // courseRequirementDelete: builder.mutation({
+    //   query: (data) => ({
+    //     url: `/courses/private/requirement/add`,
+    //     method: "DELETE",
+    //     body: data,
+    //   }),
+    // }),
   }),
 });
 
@@ -102,10 +121,10 @@ export const {
   useGetOwnCoursesQuery,
   useGetSingleCourseQuery,
   useUpdateCourseMutation,
-  useCourseIncludesAddMutation,
-  useCourseIncludesDeleteMutation,
-  useCourseLeanAddMutation,
+  useVideoAddedMutation,
+
+useIncludesAddMutation,
+  useLearnAddedMutation,
   useCourseLeanDeleteMutation,
-  useCourseRequirementAddMutation,
-  useCourseRequirementDeleteMutation,
+  useRequirementAddedMutation,
 } = coursesApi;
