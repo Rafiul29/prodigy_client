@@ -11,16 +11,20 @@ import Profile from "../Pages/Profile/Profile";
 import UpdateProfile from "../Pages/Profile/UpdateProfile";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
-import AddCategory from "../components/Admin/Category/AddCategory";
-import CourseVideoAdded from "../components/Admin/CourseVideos/CourseVideosAdded";
-import AddCourses from "../components/Admin/Courses/AddCourses";
-import CoursesIncludeAdded from "../components/Admin/CoursesIncludes/CoursesIncludeAdded";
-import CourseRequirementAdded from "../components/Admin/Requirements/CourseRequirementAdded";
-import AllUsers from "../components/Admin/Users/AllUsers";
+
+import AddCategory from "../components/Dashboard/Category/AddCategory";
+import CourseLearns from "../components/Dashboard/CourseLearns/CourseLearnsAdded";
+import CourseVideoAdded from "../components/Dashboard/CourseVideos/CourseVideosAdded";
+import AddCourses from "../components/Dashboard/Courses/AddCourses";
+import Allcourses from "../components/Dashboard/Courses/Allcourses";
+import CoursesIncludeAdded from "../components/Dashboard/CoursesIncludes/CoursesIncludeAdded";
+import CourseRequirementAdded from "../components/Dashboard/Requirements/CourseRequirementAdded";
+import PayamentDetails from "../components/Dashboard/PaymentDetails/PaymentDetail"
+import AllUsers from "../components/Dashboard/Users/AllUsers";
+
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
-import CourseLearns from "../components/Admin/CourseLearns/CourseLearnsAdded";
-import Allcourses from "../components/Admin/Courses/Allcourses";
+import TakeThisCourse from "../components/Dashboard/TakeThisCourse/TakeThisCourse";
 
 export const router = createBrowserRouter([
   {
@@ -122,6 +126,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/course-learns-added/:cid",
         element: <CourseLearns />,
+      },
+      {
+        path: "/dashboard/course-payment-details-added/:cid",
+        element: <PayamentDetails />,
+      },
+      {
+        path: "/dashboard/course-take-this-added/:cid",
+        element: <TakeThisCourse />,
       },
     ],
   },

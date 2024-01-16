@@ -111,6 +111,13 @@ export const coursesApi = apiSlice.injectEndpoints({
     //     body: data,
     //   }),
     // }),
+    paymentDetailsAdded: builder.mutation({
+      query: ({cid,data}) => ({
+        url: `/private/payments-details/add/${cid}`,
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -123,8 +130,9 @@ export const {
   useUpdateCourseMutation,
   useVideoAddedMutation,
 
-useIncludesAddMutation,
+  useIncludesAddMutation,
   useLearnAddedMutation,
   useCourseLeanDeleteMutation,
   useRequirementAddedMutation,
+  usePaymentDetailsAddedMutation
 } = coursesApi;
