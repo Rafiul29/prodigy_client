@@ -1,8 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
-import Admin from "../Pages/Admin/Admin";
-import Courses from "../Pages/Courses/Courses";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
 import NotFound from "../Pages/NotFound/NotFound";
@@ -11,6 +9,7 @@ import Profile from "../Pages/Profile/Profile";
 import UpdateProfile from "../Pages/Profile/UpdateProfile";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
+import Dashboard from "../components/Dashboard/Dashboard";
 
 import AddCategory from "../components/Dashboard/Category/AddCategory";
 import CourseLearns from "../components/Dashboard/CourseLearns/CourseLearnsAdded";
@@ -18,13 +17,15 @@ import CourseVideoAdded from "../components/Dashboard/CourseVideos/CourseVideosA
 import AddCourses from "../components/Dashboard/Courses/AddCourses";
 import Allcourses from "../components/Dashboard/Courses/Allcourses";
 import CoursesIncludeAdded from "../components/Dashboard/CoursesIncludes/CoursesIncludeAdded";
+import PayamentDetails from "../components/Dashboard/PaymentDetails/PaymentDetail";
 import CourseRequirementAdded from "../components/Dashboard/Requirements/CourseRequirementAdded";
-import PayamentDetails from "../components/Dashboard/PaymentDetails/PaymentDetail"
 import AllUsers from "../components/Dashboard/Users/AllUsers";
 
+import TakeThisCourse from "../components/Dashboard/TakeThisCourse/TakeThisCourse";
+import CourseItem from "../components/Users/Courses/CourseItem/CourseItem";
+import Courses from "../components/Users/Courses/CoursesCategory/Courses";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
-import TakeThisCourse from "../components/Dashboard/TakeThisCourse/TakeThisCourse";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
       {
         path: "/category/courses/:cid",
         element: <Courses />,
+      },
+      {
+        path: "/course/:cid",
+        element: <CourseItem />,
       },
       {
         path: "/profile",
@@ -93,7 +98,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <Admin />,
+        element: <Dashboard />,
       },
       {
         path: "/dashboard/users",
@@ -135,7 +140,6 @@ export const router = createBrowserRouter([
         path: "/dashboard/course-take-this-added/:cid",
         element: <TakeThisCourse />,
       },
-      
     ],
   },
 ]);

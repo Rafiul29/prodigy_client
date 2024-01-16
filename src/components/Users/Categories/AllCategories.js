@@ -20,7 +20,7 @@ const AllCategories = () => {
       <div className="grid grid-col-1 md:grid-cols-3 mt-10 gap-10 ">
         {categories.length > 0 &&
           categories?.map((category) => (
-            <Link to={`/category/courses/${category._id}`}>
+            <Link key={category._id}  to={`/category/courses/${category._id}`}>
               <div
                 className="rounded overflow-hidden shadow-lg hover:scale-110 duration-700 hover:bg-deep-purple-400 hover:text-white hover:cursor-pointer"
               >

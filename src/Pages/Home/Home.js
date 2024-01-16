@@ -2,7 +2,7 @@ import MarqueeComp from "../../components/Marquee/Marquee";
 import MobileApp from "../../components/MobileApp/MobileApp";
 import TopBanner from "../../components/TopBanner/TopBanner";
 import AllCategories from "../../components/Users/Categories/AllCategories";
-import Courses from "../Courses/Courses";
+
 
 const Home = () => {
   return (
@@ -19,8 +19,6 @@ const Home = () => {
         </div>
         {/* <Stats /> */}
           <AllCategories/>
-        <Courses />
-
         <MobileApp />
       </div>
     </div>
