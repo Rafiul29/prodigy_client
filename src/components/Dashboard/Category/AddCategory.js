@@ -9,10 +9,11 @@ const AddCategory = () => {
 
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
-
+  const [workshops, setWorkshop] = useState("");
   const resetForm=()=>{
     setName("");
     setImage("");
+    setWorkshop("")
   }
 
   const handleSubmit = (e) => {
@@ -20,6 +21,7 @@ const AddCategory = () => {
     createCategory({
       name,
       image,
+      workshops
     });
     resetForm();
   };
@@ -56,6 +58,14 @@ const AddCategory = () => {
                         title="Category imgae"
                         value={image}
                         onChange={(e) => setImage(e.target.value)}
+                      />
+                    </div>
+                    <div className="col-span-6">
+                      <TextInput
+                        type="number"
+                        title="Number of workshop"
+                        value={workshops}
+                        onChange={(e) => setWorkshop(e.target.value)}
                       />
                     </div>
                   </div>

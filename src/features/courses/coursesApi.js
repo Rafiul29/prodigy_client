@@ -5,7 +5,7 @@ export const coursesApi = apiSlice.injectEndpoints({
     // endpoints here
     // get all courses
     getAllCourses: builder.query({
-      query: () => `/courses/private`,
+      query: (setUlrl='') => `/courses/private/${setUlrl}`,
     }),
     // get a single course
     getSingleCourse: builder.query({

@@ -1,9 +1,11 @@
-import FilterCourses from "../../components/Courses/FIlterCourses";
+import FilterCourses from "../../components/Users/Courses/FIlterCourses";
 
 const Courses = () => {
-  return <>
-  <FilterCourses/>
-  </>;
+  return (
+    <>
+      <FilterCourses />
+    </>
+  );
 };
 
 export default Courses;
