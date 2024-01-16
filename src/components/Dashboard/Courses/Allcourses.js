@@ -232,7 +232,7 @@ const Allcourses = () => {
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
                             <div className="flex items-center">
                               <div className="font-medium text-gray-900">
-                                <Link to="/">
+                                <Link to={`/dashboard/course-take-this-added/${course._id}`}>
                                   {" "}
                                   <IoMdAddCircleOutline />
                                 </Link>

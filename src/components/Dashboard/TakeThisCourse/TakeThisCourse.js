@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useTakeThisCoursesAddedMutation } from "../../../features/courses/coursesApi";
 import TextInput from "../../ui/TextInput";
 
 const TakeThisCourse = () => {
   const [title, setTitle] = useState("");
-  // const [paymentDetailsAdd, { data: coursePaymentDetails, isLoading }] =
-  // usePaymentDetailsAddedMutation();
-  // console.log(coursePaymentDetails);
+  const [takeThisCoursesAdded, { data: takeThisCourse, isLoading }] =
+    useTakeThisCoursesAddedMutation();
+  console.log(takeThisCourse);
 
   const { cid } = useParams();
-  console.log(cid);
+
   const handleSubmit = (e) => {
     console.log("first");
     e.preventDefault();
-    // paymentDetailsAdd({
-    //   cid,
-    //   data: {
-    //     title,
-    //   },
-    // });
+    takeThisCoursesAdded({
+      cid,
+      data: {
+        title,
+      },
+    });
     setTitle("");
   };
 
@@ -31,7 +32,7 @@ const TakeThisCourse = () => {
               who should take this course added
             </h3>
             <p className="mt-1 text-sm text-gray-600">
-              Please fillup the form to add new take this course 
+              Please fillup the form to add new take this course
             </p>
           </div>
           <div className="mt-5 md:mt-0 md:col-span-2">
@@ -51,7 +52,7 @@ const TakeThisCourse = () => {
                 </div>
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button
-                    // disabled={isLoading}
+                    disabled={isLoading}
                     type="submit"
                     className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500"
                   >

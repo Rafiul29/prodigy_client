@@ -38,13 +38,12 @@ export const coursesApi = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-    
 
     // course video api
     //course video added
     videoAdded: builder.mutation({
-      query: ({cid,data}) => ({
-        url:`/private/videos/add/${cid}`,
+      query: ({ cid, data }) => ({
+        url: `/private/videos/add/${cid}`,
         method: "POST",
         body: data,
       }),
@@ -61,8 +60,8 @@ export const coursesApi = apiSlice.injectEndpoints({
     // course lean api
     // add course lean
     learnAdded: builder.mutation({
-      query: ({cid,data}) => ({
-        url:`/private/learns/add/${cid}`,
+      query: ({ cid, data }) => ({
+        url: `/private/learns/add/${cid}`,
         method: "POST",
         body: data,
       }),
@@ -75,11 +74,10 @@ export const coursesApi = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-    
     // course include
     // add curse includes
     includesAdd: builder.mutation({
-      query: ({cid,data}) => ({
+      query: ({ cid, data }) => ({
         url: `/private/includes/add/${cid}`,
         method: "POST",
         body: data,
@@ -97,7 +95,7 @@ export const coursesApi = apiSlice.injectEndpoints({
     // course requirement
     // course requirement added
     requirementAdded: builder.mutation({
-      query: ({cid,data}) => ({
+      query: ({ cid, data }) => ({
         url: `/private/requirements/add/${cid}`,
         method: "POST",
         body: data,
@@ -112,8 +110,15 @@ export const coursesApi = apiSlice.injectEndpoints({
     //   }),
     // }),
     paymentDetailsAdded: builder.mutation({
-      query: ({cid,data}) => ({
+      query: ({ cid, data }) => ({
         url: `/private/payments-details/add/${cid}`,
+        method: "POST",
+        body: data,
+      }),
+    }),
+    takeThisCoursesAdded: builder.mutation({
+      query: ({ cid, data }) => ({
+        url: `/private/take-this-course/add/${cid}`,
         method: "POST",
         body: data,
       }),
@@ -134,5 +139,6 @@ export const {
   useLearnAddedMutation,
   useCourseLeanDeleteMutation,
   useRequirementAddedMutation,
-  usePaymentDetailsAddedMutation
+  usePaymentDetailsAddedMutation,
+  useTakeThisCoursesAddedMutation
 } = coursesApi;
