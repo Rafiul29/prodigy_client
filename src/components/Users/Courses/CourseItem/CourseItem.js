@@ -1,14 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetSingleCourseQuery } from "../../../../features/courses/coursesApi";
-import { currencyFormatter } from "../../../../utils/currencyFormatter";
 import Error from "../../../ui/Error";
-import CourseDescription from "./CourseDescription";
-import CourseHeader from "./CourseHeader";
-import CourseInstructor from "./CourseInstructor";
-import Player from "./Palyer";
-import PayButton from "./PayButton";
-import { CourseIncludes } from "./CourseIncludes";
+import CourseItemLeft from "./CourseItemLeft/CourseItemLeft";
+import CourseItemRight from "./CourseItemRight/CourseItemRight";
 
 const CourseItem = () => {
   const { cid } = useParams();
@@ -26,37 +21,10 @@ const CourseItem = () => {
     content = (
       <div className="w-full  grid grid-cols-7 gap-8 ">
         <div className="col-span-4 flex flex-col gap-3">
-          <CourseHeader title={course?.title} />
-          <CourseDescription description={course?.description} />
-          <CourseInstructor
-            name={course?.instructor_name}
-            photo={course?.instructor_photo}
-          />
+          <CourseItemLeft course={course} />
         </div>
         <div className="col-span-3 flex flex-col gap-8 ">
-          <div className="flex flex-col gap-2">
-            <Player
-              title={course?.videos[0]?.name}
-              link={course?.videos[0]?.video_link}
-            />
-            <h3 className="text-xl font-medium ">{course?.videos[0]?.name}</h3>
-          </div>
-          <div className="border-2 border-gray-100 p-3 flex flex-col gap-5">
-            <div className="flex flex-row justify-between items-center rounded-md">
-              <span className="text-deep-purple-600 font-semibold text-xl">
-                {currencyFormatter(course.price)}
-              </span>
-              <PayButton course={course} />
-            </div>
-            <div className="flex flex-col gap-3">
-              <hr
-                className="s
-               bg-deep-purple-900"
-              />
-              <CourseIncludes courseincludes={course.thisCourseIncludes}/>
-            
-            </div>
-          </div>
+          <CourseItemRight course={course} />
         </div>
       </div>
     );
