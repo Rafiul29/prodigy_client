@@ -177,15 +177,6 @@ const Navbar = () => {
                   </Popover.Panel>
                 </Transition>
               </Popover>
-              <div className="flex items-center gap-2">
-                {!authChecked && (
-                  <Link to="/signin">
-                    <button className="hidden lg:inline-block hover:text-white border-2 px-5 py-1 border-deep-purple-500 text-lg font-semibold  hover:bg-deep-purple-500 text-deep-purple-600 rounded-md duration-200 hover:cursor-pointer">
-                      <span>Sign In</span>
-                    </button>
-                  </Link>
-                )}
-              </div>
             </div>
           </Popover.Group>
         </nav>
@@ -243,7 +234,16 @@ const Navbar = () => {
                 </div>
                 <div className="py-6 flex gap-9 items-center justify-center">
                   <div className="text-lg font-medium hover:text-deep-purple-700 hover:cursor-pointer">
-                    <Link to="/login">Sign In</Link>
+                    {!authChecked && <Link to="/signin" className="border-2 px-5 py-1 border-deep-purple-500 text-lg font-semibold hover:text-white hover:bg-deep-purple-500 text-deep-purple-600 rounded-md duration-200 hover:cursor-pointer" >Sign In</Link>}
+                    {authChecked && (
+                      <button
+                        className="border-2 px-5 py-1 border-deep-purple-500 text-lg font-semibold hover:text-white hover:bg-deep-purple-500 text-deep-purple-600 rounded-md duration-200 hover:cursor-pointer"
+                        color="purple"
+                        onClick={signOut}
+                      >
+                        <span>Sign Out</span>
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
