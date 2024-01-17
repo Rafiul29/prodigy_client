@@ -4,11 +4,11 @@ const UserProfile = ({ user }) => {
   return (
     <div className="w-[50%] flex flex-col gap-5">
       <div className=" flex flex-col items-center gap-5">
-        <h2 className="text-3xl font-medium tracking-wider">
+        <h2 className="text-2xl font-medium tracking-wider">
           Personal information
         </h2>
-        <h3 className="flex justify-center items-center h-40 w-40 text-8xl bg-gray-300 rounded-full">
-          <FaRegUser />
+        <h3 className="flex justify-center items-center h-40 w-40 text-8xl bg-gray-300 rounded-full text-deep-purple-600">
+          <FaRegUser  />
         </h3>
       </div>
       <div className=" flex flex-col gap-3">

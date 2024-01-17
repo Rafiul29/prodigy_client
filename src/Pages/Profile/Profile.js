@@ -17,6 +17,7 @@ const Profile = () => {
   const [deleteUserAccount] = useDeleteUserAccountMutation();
 
   const dispatch = useDispatch();
+  //delete account
   const handleDelete = () => {
     deleteUserAccount();
     // store clear
@@ -26,6 +27,7 @@ const Profile = () => {
         user: undefined,
       })
     );
+
     // delete local storage
     localStorage.removeItem("auth");
     navigate("/");
@@ -52,16 +54,16 @@ const Profile = () => {
         </div>
         <div className="mt-5 flex flex-row justify-center items-center gap-5">
           <Link
-            className="text-xl bg-deep-purple-600 px-5 py-2 rounded-md text-gray-200 font-medium hover:bg-deep-purple-400 duration-500 hover:text-gray-300"
+            className="text-xl bg-deep-purple-900 px-5 py-2 rounded-md text-gray-200 font-medium hover:shadow-xl hover:bg-deep-purple-700 duration-500 hover:text-gray-300"
             to="/update-profile"
           >
             Edit Profile
           </Link>
 
           <button
+            disabled={isLoading}
             onClick={handleDelete}
-            className="text-xl bg-deep-purple-600 px-5 py-2 rounded-md text-gray-200 font-medium hover:bg-deep-purple-400 duration-500 hover:text-gray-300"
-            to="/update-profile"
+            className="text-xl bg-deep-purple-900 px-5 py-2 rounded-md text-gray-200 font-medium hover:shadow-xl hover:bg-deep-purple-700 duration-500 hover:text-gray-300"
           >
             Delete Profile
           </button>
