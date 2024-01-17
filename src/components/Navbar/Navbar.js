@@ -1,9 +1,5 @@
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
-import {
-  ChevronDownIcon,
-  PhoneIcon,
-  PlayCircleIcon,
-} from "@heroicons/react/20/solid";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -46,11 +42,6 @@ const Navbar = () => {
       setHasScrolled(false);
     }
   };
-
-  const callsToAction = [
-    { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-    { name: "Contact sales", href: "#", icon: PhoneIcon },
-  ];
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -234,7 +225,14 @@ const Navbar = () => {
                 </div>
                 <div className="py-6 flex gap-9 items-center justify-center">
                   <div className="text-lg font-medium hover:text-deep-purple-700 hover:cursor-pointer">
-                    {!authChecked && <Link to="/signin" className="border-2 px-5 py-1 border-deep-purple-500 text-lg font-semibold hover:text-white hover:bg-deep-purple-500 text-deep-purple-600 rounded-md duration-200 hover:cursor-pointer" >Sign In</Link>}
+                    {!authChecked && (
+                      <Link
+                        to="/signin"
+                        className="border-2 px-5 py-1 border-deep-purple-500 text-lg font-semibold hover:text-white hover:bg-deep-purple-500 text-deep-purple-600 rounded-md duration-200 hover:cursor-pointer"
+                      >
+                        Sign In
+                      </Link>
+                    )}
                     {authChecked && (
                       <button
                         className="border-2 px-5 py-1 border-deep-purple-500 text-lg font-semibold hover:text-white hover:bg-deep-purple-500 text-deep-purple-600 rounded-md duration-200 hover:cursor-pointer"

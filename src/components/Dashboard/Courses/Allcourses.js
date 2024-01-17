@@ -1,9 +1,9 @@
 import { FaRegEdit } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa6";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { RiDeleteBin5Line } from "react-icons/ri";
-import { FaPlus } from "react-icons/fa6";
-import { useGetAllCoursesQuery } from "../../../features/courses/coursesApi";
 import { Link } from "react-router-dom";
+import { useGetAllCoursesQuery } from "../../../features/courses/coursesApi";
 
 const Allcourses = () => {
   const { data: courses, isLoading, isError } = useGetAllCoursesQuery();
@@ -22,12 +22,15 @@ const Allcourses = () => {
         <div className="sm:flex sm:items-center ">
           <div className=" w-full md:flex justify-between">
             <h1 className="text-xl font-semibold text-gray-900">All Courses</h1>
-            <h5 className="text-sm font-semibold text-white bg-indigo-600 px-4 py-2 rounded-md cursor-pointer flex justify-center items-center gap-1">
+            <h5 className="text-sm font-semibold text-white bg-indigo-600 px-4 py-2 rounded-md cursor-pointer">
               {" "}
-              <span>
-                <FaPlus />
-              </span>
-              <span> Add Courses</span>
+              <Link to="/dashboard/addcourses" className=" flex justify-center items-center gap-1">
+                {" "}
+                <span>
+                  <FaPlus />
+                </span>
+                <span> Add Courses</span>
+              </Link>
             </h5>
           </div>
         </div>

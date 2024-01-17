@@ -1,11 +1,4 @@
-import {
-  FaAd,
-  FaCalendar,
-  FaHome,
-  FaList,
-  FaSearch,
-  FaShoppingCart,
-} from "react-icons/fa";
+import { FaCalendar, FaHome, FaSearch, FaShoppingCart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const Dashboard = () => {
@@ -25,46 +18,56 @@ const Dashboard = () => {
           </li>
           <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
             <NavLink
+              to="/dashboard/users"
+              className="flex justify-start items-center  flex- gap-2"
+            >
+              <FaHome></FaHome>
+              Users
+            </NavLink>
+          </li>
+          <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
+            <NavLink
+              to="manage-courses"
+              className="flex justify-start items-center  flex- gap-2"
+            >
+              <FaCalendar></FaCalendar>
+              Courses
+            </NavLink>
+          </li>
+          <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
+            <NavLink
               to="/dashboard/reservation"
               className="flex justify-start items-center  flex- gap-2"
             >
               <FaCalendar></FaCalendar>
-              Reservation
+              Categories
             </NavLink>
           </li>
           <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
             <NavLink
-              to="/dashboard/cart"
+              to="/dashboard/payments"
               className="flex justify-start items-center  flex- gap-2"
             >
               <FaShoppingCart></FaShoppingCart>
-              My Cart{" "}
+              Payments
             </NavLink>
           </li>
-          <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
-            <NavLink
-              to="/dashboard/review"
-              className="flex justify-start items-center  flex- gap-2"
-            >
-              <FaAd></FaAd>
-              Add a Review
-            </NavLink>
-          </li>
-          <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
-            <NavLink to="/dashboard/bookings"  className="flex justify-start items-center  flex- gap-2">
-              <FaList></FaList>
-              My Bookings
-            </NavLink>
-          </li>
+
           <div className="divider"></div>
           <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
-            <NavLink to="/"  className="flex justify-start items-center  flex- gap-2">
+            <NavLink
+              to="/"
+              className="flex justify-start items-center  flex- gap-2"
+            >
               <FaHome></FaHome>
               Home
             </NavLink>
           </li>
           <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
-            <NavLink to="/order/salad"  className="flex justify-start items-center  flex- gap-2">
+            <NavLink
+              to="/"
+              className="flex justify-start items-center  flex- gap-2"
+            >
               <FaSearch></FaSearch>
               Menu
             </NavLink>
