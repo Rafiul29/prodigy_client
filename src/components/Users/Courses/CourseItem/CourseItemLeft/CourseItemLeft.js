@@ -4,13 +4,14 @@ import CourseHeader from "./CourseHeader";
 import CourseInstructor from "./CourseInstructor";
 
 const CourseItemLeft = ({ course }) => {
+  const {title,description,instructor_name,instructor_photo}=course
   return (
     <>
-      <CourseHeader  title={course?.title} />
-      <CourseDescription description={course?.description} />
+      <CourseHeader  title={title} />
+      <CourseDescription description={description} />
       <CourseInstructor
-        name={course?.instructor_name}
-        photo={course?.instructor_photo}
+        name={instructor_name}
+        photo={instructor_photo}
       />
     </>
   );

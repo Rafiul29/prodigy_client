@@ -1,42 +1,74 @@
-import React from 'react'
-import { useDeleteUserAccountMutation, useGetUsersProfileQuery } from '../../features/users/usersApi'
-import { Link, useNavigate } from 'react-router-dom';
-import { userLoggedOut } from '../../features/auth/authSlice';
-import { useDispatch } from 'react-redux';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import UserProfile from "../../components/Users/UserProfile.js/UserProfile";
+import Error from "../../components/ui/Error";
+import { userLoggedOut } from "../../features/auth/authSlice";
+import {
+  useDeleteUserAccountMutation,
+  useGetUsersProfileQuery,
+} from "../../features/users/usersApi";
 
 const Profile = () => {
-  const {data:user,isError}=useGetUsersProfileQuery();
-  const navigate=useNavigate();
-  const [deleteUserAccount,{isLoading}]=useDeleteUserAccountMutation()
+  const { data: user, isError, isLoading } = useGetUsersProfileQuery();
 
-  const dispatch=useDispatch();
- const handleDelete=()=>{
+  const navigate = useNavigate();
 
-  deleteUserAccount();
+  const [deleteUserAccount] = useDeleteUserAccountMutation();
+
+  const dispatch = useDispatch();
+  const handleDelete = () => {
+    deleteUserAccount();
     // store clear
-  dispatch(
-    userLoggedOut({
-      token: undefined,
-      user: undefined,
-    })
+    dispatch(
+      userLoggedOut({
+        token: undefined,
+        user: undefined,
+      })
+    );
+    // delete local storage
+    localStorage.removeItem("auth");
+    navigate("/");
+  };
 
-  );
-  // delete local storage
-  localStorage.removeItem("auth");
-  navigate("/");
+  let content = null;
+
+  if (isLoading) {
+    content = <Error message="Loading .........." />;
+  }
+  if (!isLoading && isError) {
+    content = <Error message="User not found" />;
+  }
+
+  if (!isLoading && !isError && user?._id) {
+    content = <UserProfile user={user} />;
   }
 
   return (
-    <div className='flex flex-col gap-6'>
-      <h1>{user?.fullName}</h1>
-    <h2>{user?.email}</h2>
-    <h3>{user?.phoneNumber}</h3>
-    <h4>{user?.address}</h4>
-    <h5>{user?.role}</h5>
-    <button onClick={handleDelete} className='bg-red-400 x-4 py-2 cursor-pointer'>delete Account</button>
-    <Link to="/update-profile"  className='bg-red-400 x-4 py-2 cursor-pointer'>update Account</Link>
-    </div>
-  )
-}
+    <div className="px-4 sm:px-6 lg:px-8 section-padding mt-10 wrapper ">
+      <div className="container mx-auto">
+        <div className=" flex justify-center items-center gap-10">
+          {content}
+        </div>
+        <div className="mt-5 flex flex-row justify-center items-center gap-5">
+          <Link
+            className="text-xl bg-deep-purple-600 px-5 py-2 rounded-md text-gray-200 font-medium hover:bg-deep-purple-400 duration-500 hover:text-gray-300"
+            to="/update-profile"
+          >
+            Edit Profile
+          </Link>
 
-export default Profile
+          <button
+            onClick={handleDelete}
+            className="text-xl bg-deep-purple-600 px-5 py-2 rounded-md text-gray-200 font-medium hover:bg-deep-purple-400 duration-500 hover:text-gray-300"
+            to="/update-profile"
+          >
+            Delete Profile
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Profile;

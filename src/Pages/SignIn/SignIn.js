@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <div className=" mx-auto max-w-4xl max-h-4xl my-auto hover:shadow-2xl duration-200 shadow-lg py-10 px-10 mt-20 ">
+    <div className=" mx-auto max-w-4xl max-h-4xl my-auto hover:shadow-2xl duration-200 shadow-lg py-10 px-10 mt-20">
       <div className="flex justify-center flex-col items-center my-auto max-h-3xl md:flex-row-reverse">
         <Card color="transparent" shadow={false}>
           <Typography variant="h4" color="blue-gray">

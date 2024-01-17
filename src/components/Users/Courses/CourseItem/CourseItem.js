@@ -29,6 +29,8 @@ const CourseItem = () => {
       </div>
     );
   }
+  
+
   return (
     <div className="px-4 sm:px-6 lg:px-8 section-padding mt-10 wrapper min-h-[calc(90vh-5rem)]">
       <div className="max-w-6xl mx-auto mt-14">

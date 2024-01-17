@@ -1,5 +1,6 @@
 
 const CourseInstructor = ({ name, photo }) => {
+  
   return (
     <div>
       <img src={photo} alt={name} />
