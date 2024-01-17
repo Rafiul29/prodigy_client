@@ -32,9 +32,9 @@ const AllUsers = () => {
 
   return (
     <>
-      <div className="px-4 sm:px-6 lg:px-8 section-padding mt-10 wrapper ">
-        <div className="container mx-auto">
-          <div className="sm:flex sm:items-center ">
+      <div className=" ">
+        <div className=" ">
+          <div className=" ">
             <div className="sm:flex-auto">
               <h1 className="text-xl font-semibold text-gray-900">All Users</h1>
             </div>

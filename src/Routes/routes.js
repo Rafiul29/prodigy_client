@@ -9,7 +9,6 @@ import Profile from "../Pages/Profile/Profile";
 import UpdateProfile from "../Pages/Profile/UpdateProfile";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
-import Dashboard from "../components/Dashboard/Dashboard";
 
 import AddCategory from "../components/Dashboard/Category/AddCategory";
 import CourseLearns from "../components/Dashboard/CourseLearns/CourseLearnsAdded";
@@ -97,8 +96,8 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/dashboard",
-        element: <Dashboard />,
+        path: "/dashboard/manage-courses/",
+        element: <Allcourses />,
       },
       {
         path: "/dashboard/users",
@@ -108,10 +107,7 @@ export const router = createBrowserRouter([
         path: "/dashboard/addcourses",
         element: <AddCourses />,
       },
-      {
-        path: "/dashboard/manage-courses/",
-        element: <Allcourses />,
-      },
+      
       {
         path: "/dashboard/addcategory",
         element: <AddCategory />,

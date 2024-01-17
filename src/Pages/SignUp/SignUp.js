@@ -117,29 +117,21 @@ const SignUp = () => {
              disabled={isLoading}
               type="submit"
               color="amber"
-              className="mt-6 hover:text-white"
+              className="mt-6 mb-2 hover:text-white"
               fullWidth
             >
               Sign up
             </Button>
 
-              {error!=="" && <Error message={error?.error}/>}
-            {/* <Typography
-              color="Red"
-              className="mt-4 text-center bg-red-100 rounded-md px-4 py-2 text-red-900 font-normal"
-            >
-           
-            </Typography> */}
+              {error!=="" && <Error message={error}/>}
 
             <Link to="/signin">
-              <Typography color="gray" className="mt-4 text-center font-normal">
+              <Typography color="gray" className="mt-4 text-center font-medium transition-colors  flex gap-3">
                 Already have an account?{" "}
-                <a
-                  href="/"
-                  className="font-medium text-amber-500 transition-colors hover:text-amber-700"
-                >
-                  Sign In
-                </a>
+                
+                <p className="text-amber-300 hover:text-amber-700">
+                Sign In
+                </p>
               </Typography>
             </Link>
           </form>
