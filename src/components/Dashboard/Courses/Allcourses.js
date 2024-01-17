@@ -11,13 +11,13 @@ const Allcourses = () => {
   if (isLoading && isError) {
     return (
       <div className="px-4 sm:px-6 lg:px-8 section-padding mt-10 wrapper min-h-[calc(90vh-5rem)]">
-        <h2 className="text-4xl">Is Loading</h2>
+        <h2 className="text-4xl"> Loading ...................</h2>
       </div>
     );
   }
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 section-padding mt-10 wrapper min-h-[calc(90vh-5rem)]">
+    <div className="px-4 sm:px-6 lg:px-8 section-padding mt-10 wrapper min-h-screen w-[100%]">
       <div className=" mx-auto">
         <div className="sm:flex sm:items-center ">
           <div className=" w-full md:flex justify-between">
@@ -34,8 +34,8 @@ const Allcourses = () => {
         <div className="mt-8 flex flex-col">
           <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
-                <table className="min-w-full divide-y table-auto divide-gray-300 ">
+              <div className="overflow-hidden shadow ring-black ring-opacity-5 md:rounded-lg">
+                <table className="min-w-full divide-y table- divide-gray-300 overflow-hidden bg-blue-gray-400 ">
                   <thead className="bg-gray-50">
                     <tr>
                       <th
@@ -50,12 +50,12 @@ const Allcourses = () => {
                       >
                         Course Title
                       </th>
-                      <th
+                      {/* <th
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
                         Insturctor Name
-                      </th>
+                      </th> */}
                       <th
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
@@ -66,7 +66,7 @@ const Allcourses = () => {
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        price
+                        Price
                       </th>
                       <th
                         scope="col"
@@ -85,50 +85,50 @@ const Allcourses = () => {
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Add video
+                        Videos
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Add requirement
+                        Requirement
                       </th>
 
                       <th
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Add Includes
+                        Includes
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Add Learns
+                        Learns
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Should take this course
+                        Should take this
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        payment details
+                        Payment details
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Update Courses
+                        Update
                       </th>
                       <th
                         scope="col"
                         className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Delete Courses
+                        Delete
                       </th>
                     </tr>
                   </thead>
@@ -150,13 +150,13 @@ const Allcourses = () => {
                               </div>
                             </div>
                           </td>
-                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
+                          {/* <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
                             <div className="flex items-center">
                               <div className="font-medium text-gray-900">
-                                {course.instructor_name}
+                                {course.instructor_name.length}
                               </div>
                             </div>
-                          </td>
+                          </td> */}
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-md sm:pl-6">
                             <div className="flex items-center">
                               <div className="font-medium text-gray-900">
@@ -212,7 +212,9 @@ const Allcourses = () => {
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl sm:pl-6">
                             <div className="flex items-center">
                               <div className="font-medium text-gray-900">
-                                <Link to={`/dashboard/course-include-added/${course._id}`}>
+                                <Link
+                                  to={`/dashboard/course-include-added/${course._id}`}
+                                >
                                   <IoMdAddCircleOutline />
                                 </Link>
                               </div>
@@ -232,7 +234,9 @@ const Allcourses = () => {
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
                             <div className="flex items-center">
                               <div className="font-medium text-gray-900">
-                                <Link to={`/dashboard/course-take-this-added/${course._id}`}>
+                                <Link
+                                  to={`/dashboard/course-take-this-added/${course._id}`}
+                                >
                                   {" "}
                                   <IoMdAddCircleOutline />
                                 </Link>
@@ -242,7 +246,9 @@ const Allcourses = () => {
                           <td className="whitespace-nowrap py-4 pl-4 pr-3 text-xl  sm:pl-6">
                             <div className="flex items-center">
                               <div className="font-medium text-gray-900">
-                                <Link to={`/dashboard/course-payment-details-added/${course._id}`}>
+                                <Link
+                                  to={`/dashboard/course-payment-details-added/${course._id}`}
+                                >
                                   {" "}
                                   <IoMdAddCircleOutline />
                                 </Link>
@@ -279,6 +285,76 @@ const Allcourses = () => {
         </div>
       </div>
     </div>
+    // <div className="px-4 sm:px-6 lg:px-8 section-padding mt-10 wrapper min-h-screen w-[100%]">
+    //   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    //     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    //       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    //         <tr>
+    //           <th scope="col" class="px-6 py-3">
+    //             Product name
+    //           </th>
+    //           <th scope="col" class="px-6 py-3">
+    //             Color
+    //           </th>
+    //           <th scope="col" class="px-6 py-3">
+    //             Category
+    //           </th>
+    //           <th scope="col" class="px-6 py-3">
+    //             Price
+    //           </th>
+    //           <th scope="col" class="px-6 py-3">
+    //             <span class="sr-only">Edit</span>
+    //           </th>
+    //         </tr>
+    //       </thead>
+    //       <tbody>
+    //         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+    //           <th
+    //             scope="row"
+    //             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+    //           >
+    //             Apple MacBook Pro 17"
+    //           </th>
+    //           <td class="px-6 py-4">Silver</td>
+    //           <td class="px-6 py-4">Laptop</td>
+    //           <td class="px-6 py-4">$2999</td>
+    //           <td class="px-6 py-4 text-right">
+    //             <a
+    //               href="#"
+    //               class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+    //             >
+    //               Edit
+    //             </a>
+    //           </td>
+    //         </tr>
+    //         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+    //           <th
+    //             scope="row"
+    //             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+    //           >
+    //             Microsoft Surface Pro
+    //           </th>
+    //           <td class="px-6 py-4">White</td>
+    //           <td class="px-6 py-4">Laptop PC</td>
+    //           <td class="px-6 py-4">$1999</td>
+    //           <td class="px-6 py-4 text-right">eid</td>
+    //         </tr>
+    //         <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+    //           <th
+    //             scope="row"
+    //             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+    //           >
+    //             Magic Mouse 2
+    //           </th>
+    //           <td class="px-6 py-4">Black</td>
+    //           <td class="px-6 py-4">Accessories</td>
+    //           <td class="px-6 py-4">$99</td>
+    //           <td class="px-6 py-4 text-right">eid</td>
+    //         </tr>
+    //       </tbody>
+    //     </table>
+    //   </div>
+    // </div>
   );
 };
 

@@ -6,17 +6,12 @@ import {
 } from "@heroicons/react/20/solid";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import React, { Fragment, useEffect, useState } from "react";
-import { FaBoxes } from "react-icons/fa";
-import { FcDataConfiguration } from "react-icons/fc";
-import { GrShieldSecurity } from "react-icons/gr";
-import { IoMdBusiness } from "react-icons/io";
-import { RiCodeBoxFill } from "react-icons/ri";
-import { SiHiveBlockchain } from "react-icons/si";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/FP log.png";
 import { userLoggedOut } from "../../features/auth/authSlice";
 import useAuth from "../../hooks/useAuth";
+import NavbarCategory from "./NavbarCategory/NavbarCategory";
 
 const Navbar = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -52,44 +47,6 @@ const Navbar = () => {
     }
   };
 
-  const products = [
-    {
-      name: "Web and App Development",
-      description: "",
-      href: "#",
-      icon: <RiCodeBoxFill className="text-2xl text-blue-500" />,
-    },
-    {
-      name: "Business and Marketing",
-      description: "",
-      href: "#",
-      icon: <IoMdBusiness className="text-3xl text-blue-900" />,
-    },
-    {
-      name: "Product Design",
-      description: "",
-      href: "#",
-      icon: <FaBoxes className="text-3xl text-red-500" />,
-    },
-    {
-      name: "Cybersecurity",
-      description: "",
-      href: "#",
-      icon: <GrShieldSecurity className="text-3xl text-blue-500" />,
-    },
-    {
-      name: "Data Engineering",
-      description: "",
-      href: "#",
-      icon: <FcDataConfiguration className="text-3xl" />,
-    },
-    {
-      name: "BlockchainDevelopment",
-      description: "",
-      href: "#",
-      icon: <SiHiveBlockchain className="text-3xl" />,
-    },
-  ];
   const callsToAction = [
     { name: "Watch demo", href: "#", icon: PlayCircleIcon },
     { name: "Contact sales", href: "#", icon: PhoneIcon },
@@ -154,30 +111,7 @@ const Navbar = () => {
                 >
                   <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                     <div className="p-4">
-                      {products.map((item) => (
-                        <div
-                          key={item.name}
-                          className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50
-                                                    hover:text-blue-700"
-                        >
-                          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                            {/* <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" /> */}
-                            {item.icon}
-                          </div>
-                          <div className="flex-auto">
-                            <a
-                              href={item.href}
-                              className="block font-semibold text-gray-900 hover:text-deep-purple-600"
-                            >
-                              {item.name}
-                              <span className="absolute inset-0" />
-                            </a>
-                            <p className="mt-1 text-gray-600">
-                              {item.description}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
+                      <NavbarCategory />
                     </div>
                   </Popover.Panel>
                 </Transition>
@@ -244,18 +178,6 @@ const Navbar = () => {
                 </Transition>
               </Popover>
               <div className="flex items-center gap-2">
-                {/* <AiOutlineMail className="text-2xl font-medium mr-2" /> */}
-
-                {/* <div>
-                  <Link to="/profile">
-                    <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN3z1FtTdriea_p8EHVNlWcf9xTWfoYEadB3jTINw&s"
-                      className="h-10 w-10 rounded-full"
-                      alt=""
-                    />
-                  </Link>
-                </div> */}
-
                 {!authChecked && (
                   <Link to="/signin">
                     <button className="hidden lg:inline-block hover:text-white border-2 px-5 py-1 border-deep-purple-500 text-lg font-semibold  hover:bg-deep-purple-500 text-deep-purple-600 rounded-md duration-200 hover:cursor-pointer">
@@ -266,7 +188,6 @@ const Navbar = () => {
               </div>
             </div>
           </Popover.Group>
-          {/* <div className='border-2 px-5 py-1 border-[#DBA6F7] text-lg font-semibold hover:text-white hover:bg-[#DBA6F7] text-[#DBA6F7] rounded-md duration-200 hover:cursor-pointer'>Get Started</div> */}
         </nav>
         <Dialog
           as="div"
@@ -314,16 +235,7 @@ const Navbar = () => {
                           />
                         </Disclosure.Button>
                         <Disclosure.Panel className="mt-2 space-y-2">
-                          {[...products, ...callsToAction].map((item) => (
-                            <Disclosure.Button
-                              key={item.name}
-                              as="a"
-                              href={item.href}
-                              className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                            >
-                              {item.name}
-                            </Disclosure.Button>
-                          ))}
+                          <NavbarCategory />
                         </Disclosure.Panel>
                       </>
                     )}
@@ -331,7 +243,7 @@ const Navbar = () => {
                 </div>
                 <div className="py-6 flex gap-9 items-center justify-center">
                   <div className="text-lg font-medium hover:text-deep-purple-700 hover:cursor-pointer">
-                    Sign In
+                    <Link to="/login">Sign In</Link>
                   </div>
                 </div>
               </div>

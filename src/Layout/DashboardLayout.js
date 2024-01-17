@@ -1,17 +1,16 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Dashboard from "../components/Dashboard/Dashboard";
-import Navbar from "../components/Navbar/Navbar";
+
 
 const AdminLayout = () => {
   return (
     <div>
-      <Navbar />
-      <div className="grid grid-cols-12 gap-2 ">
-        <div className="col-span-2 bg-red-300">
+      <div className="grid grid-cols-[11%_89%]">
+        <div className=" bg-gray-200 text-gray-100 p">
           <Dashboard />
         </div>
-        <div className="col-span-10 ">
+        <div className="overflow-hidden ">
           <Outlet />
         </div>
       </div>
