@@ -5,11 +5,12 @@ import {
   useUpdateUserRoleMutation,
 } from "../../../features/users/usersApi";
 import Error from "../../ui/Error";
+import Loader from "../../ui/Loaders/Loader";
 import TableHeader from "../Table/TableHeader";
 
 const UsersTable = () => {
   const { data: users, error, isLoading, isError } = useGetAllUsersQuery();
-console.log(users?.length)
+  console.log(users?.length);
   // role updated
   const [role, setRole] = useState("");
 
@@ -51,18 +52,24 @@ console.log(users?.length)
     }
   }, [user, updateError]);
 
-
-  // decide what to do render 
+  // decide what to do render
   let content = null;
   if (isLoading) {
-    content = <Error message="Loading ...................." />;
+    content = (
+      <>
+        <Loader />
+        <Loader />
+        <Loader />
+        <Loader />
+      </>
+    );
   }
 
   if (!isLoading && isError) {
     content = <Error message={`${error?.data?.message} access denite`} />;
   }
 
-  if (!isLoading && !isError &&  users?.length===0) {
+  if (!isLoading && !isError && users?.length === 0) {
     content = <Error message={"User not Found"} />;
   }
 
