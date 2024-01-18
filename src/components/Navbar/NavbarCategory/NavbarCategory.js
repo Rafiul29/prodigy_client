@@ -29,7 +29,7 @@ const NavbarCategory = () => {
       <NavbarCategoryItem key={category._id} category={category} />
     ));
   }
-  return <>{content}</>;
+  return <div className="flex flex-col gap-2">{content}</div>;
 };
 
 export default NavbarCategory;

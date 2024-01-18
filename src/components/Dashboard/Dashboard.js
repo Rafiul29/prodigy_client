@@ -49,7 +49,7 @@ const Dashboard = () => {
               className="flex justify-start items-center  flex- gap-2"
             >
               <FaShoppingCart></FaShoppingCart>
-              Payments
+              Payments history
             </NavLink>
           </li>
 

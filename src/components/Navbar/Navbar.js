@@ -178,10 +178,10 @@ const Navbar = () => {
           onClose={setMobileMenuOpen}
         >
           <div className="fixed inset-0 z-10" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-5 py-5 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <div className="flex lg:flex-1">
-                <img src={logo} alt="" />
+                <img src={logo} alt='logo' className="" />
               </div>
               <button
                 type="button"
@@ -192,14 +192,14 @@ const Navbar = () => {
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <div className="mt-6 flow-root">
+            <div className=" flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-                  <div className="text-base font-medium hover:text-deep-purple-700 hover:cursor-pointer py-5 mt-9">
+                  <div className="text-base font-medium hover:text-deep-purple-700 hover:cursor-pointer py-5 ">
                     Why Future Prodigy?
                   </div>
                   <hr />
-                  <div className="text-base font-medium hover:text-deep-purple-700 hover:cursor-pointer py-5">
+                  <div className="text-base font-medium  hover:text-deep-purple-700 hover:cursor-pointer py-5">
                     Student Success
                   </div>
                   <hr />
