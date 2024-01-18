@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { useGetAllCategoriesQuery } from "../../../../features/category/categoryApi";
+import { toast } from "react-toastify";
+import {
+  useDeleteCategoryMutation,
+  useGetAllCategoriesQuery,
+} from "../../../../features/category/categoryApi";
 import Error from "../../../ui/Error";
 import Loader from "../../../ui/Loaders/Loader";
 import TableData from "../../Table/TableData";
@@ -10,6 +14,42 @@ import { TableLinkData } from "../../Table/TableLinkData";
 
 const CategoryTable = () => {
   const { data: category, isLoading, isError } = useGetAllCategoriesQuery();
+
+  const [
+    deleteCategory,
+    { data: resCategory, isLoading: resLoading },
+  ] = useDeleteCategoryMutation();
+
+  const handleDelete = (cid) => {
+    deleteCategory(cid);
+  };
+
+  useEffect(() => {
+    if (resCategory?._id) {
+      toast.info("category delete successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    if (resCategory?.error) {
+      toast.error(`${resCategory?.error}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  }, [resCategory]);
 
   // decide what to do render
   let content = null;
@@ -59,7 +99,11 @@ const CategoryTable = () => {
                     data={<FaRegEdit />}
                     link={`/dashboard/update-category/${category._id}`}
                   />
-                  <td class="text-red-400 px-5 text-2xl py-2 font-sans cursor-pointer">
+                  <td
+                    aria-disabled={resLoading}
+                    onClick={() => handleDelete(category._id)}
+                    class="text-red-400 px-5 text-2xl py-2 font-sans cursor-pointer"
+                  >
                     <MdDelete />
                   </td>
                 </tr>

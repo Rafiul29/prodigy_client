@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { useUpdateCategoryMutation } from "../../../../features/category/categoryApi";
 import TextInput from "../../../ui/TextInput";
+import { useNavigate } from "react-router-dom";
 
 const Form = ({ category }) => {
+
   const {
     _id,
     name: initialName,
@@ -13,14 +17,49 @@ const Form = ({ category }) => {
   const [image, setImage] = useState(initialImage);
   const [workshops, setWorkshop] = useState(initailWorkshop);
 
+  const [updateCategor, { data: resCategory, isLoading, isError }] =
+    useUpdateCategoryMutation();
+
+    const navigate=useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    // createCategory({
-    //   name,
-    //   image,
-    //   workshops
-    // });
+    updateCategor({
+      cid: _id,
+      data: {
+        name,
+        image,
+        workshops,
+      },
+    });
   };
+
+  useEffect(() => {
+    if (resCategory?._id) {
+      toast.info("category update successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      navigate("/dashboard/manage-category")
+    }
+    if (!resCategory?._id && isError) {
+      toast.error("category update not successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  }, [resCategory, isError,navigate]);
   return (
     <form onSubmit={handleSubmit}>
       <div className="shadow overflow-hidden sm:rounded-md">
@@ -55,16 +94,13 @@ const Form = ({ category }) => {
         </div>
         <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
           <button
-            // disabled={isLoading}
+            disabled={isLoading}
             type="submit"
             className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500"
           >
             Save
           </button>
         </div>
-
-        {/* {data && <Success message="Category was added successfully" />}
-        {data?.error && <Error message={data?.error} />} */}
       </div>
     </form>
   );

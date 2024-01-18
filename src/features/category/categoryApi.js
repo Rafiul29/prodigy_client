@@ -2,19 +2,27 @@ import { apiSlice } from "../api/apiSlice";
 
 export const categoryApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    tagTypes: ["Categories", "Category"],
     // endpoints here
     // get all category
     getAllCategories: builder.query({
       query: () => `/categories/private`,
+      keepUnusedDataFor: 600,
+      providesTags: ["Categories", "Category"],
     }),
     // get a single category
     getSingleCategory: builder.query({
       query: (cid) => `/categories/private/${cid}`,
+      invalidatesTags: (result, error, arg) => [
+        "Categories",
+        { type: "Category", id: arg.id },
+      ],
     }),
 
     // get all own a  category
     getOwnCategory: builder.query({
       query: (cid) => `/categories/private/${cid}`,
+      providesTags: ["Categories", "Category"],
     }),
     // create a new category
     createCategory: builder.mutation({
@@ -23,6 +31,7 @@ export const categoryApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      providesTags: (result, error, arg) => [{ type: "Category", id: arg }],
     }),
     // delete a category
     deleteCategory: builder.mutation({
@@ -30,14 +39,22 @@ export const categoryApi = apiSlice.injectEndpoints({
         url: `/categories/private/${cid}`,
         method: "DELETE",
       }),
+      invalidatesTags: (result, error, arg) => [
+        "Categories",
+        { type: "Category", id: arg.id },
+      ],
     }),
     // update category
     updateCategory: builder.mutation({
-      query: ({ data, cid }) => ({
-        url: "/users/private/user-role-update",
+      query: ({ cid, data }) => ({
+        url: `/categories/private/${cid}`,
         method: "PUT",
         body: data,
       }),
+      invalidatesTags: (result, error, arg) => [
+        "Categories",
+        { type: "Category", id: arg.id },
+      ],
     }),
   }),
 });
