@@ -10,6 +10,7 @@ const AddCategory = () => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [workshops, setWorkshop] = useState("");
+  
   const resetForm=()=>{
     setName("");
     setImage("");

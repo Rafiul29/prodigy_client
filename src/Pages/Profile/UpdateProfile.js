@@ -7,6 +7,7 @@ import { useGetUsersProfileQuery } from "../../features/users/usersApi";
 const UpdateProfile = () => {
   const { data: user, isError, isLoading } = useGetUsersProfileQuery();
 
+  
   let content = null;
 
   if (isLoading) {

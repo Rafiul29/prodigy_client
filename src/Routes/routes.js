@@ -26,6 +26,7 @@ import CourseItem from "../components/Users/Courses/CourseItem/CourseItem";
 import Courses from "../components/Users/Courses/CoursesCategory/Courses";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
+import UpdateCategory from "../components/Dashboard/ManageCategory/UpdateCategory/UpdateCategory";
 
 export const router = createBrowserRouter([
   {
@@ -115,6 +116,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/addcategory",
         element: <AddCategory />,
+      },
+      {
+        path: "/dashboard/update-category/:cid",
+        element: <UpdateCategory/>,
       },
       {
         path: "/dashboard/course-add-video/:cid",

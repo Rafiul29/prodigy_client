@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
   return isLoggedIn ? (
     children
   ) : (
-    <Navigate to="/login" state={{ from: location }} replace></Navigate>
+    <Navigate to="/signin" state={{ from: location }} replace></Navigate>
   );
 };
 

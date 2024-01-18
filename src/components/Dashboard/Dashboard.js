@@ -1,13 +1,20 @@
-import { FaCalendar, FaHome, FaSearch, FaShoppingCart } from "react-icons/fa";
+import { BiCategoryAlt } from "react-icons/bi";
+import { FaHome, FaSearch, FaUser } from "react-icons/fa";
+import { SiCoursera } from "react-icons/si";
+import { LiaStripe } from "react-icons/lia";
 import { NavLink } from "react-router-dom";
-
+import logo from "../../assets/FP log.png"
 const Dashboard = () => {
   return (
     <div className="flex">
       {/* dashboard side bar */}
       <div className="w-full mt-10 min-h-screen  font-medium text-md">
+      <div className="flex lg:flex-1">
+                <img src={logo} alt='logo' className="" />
+              </div>
         <ul className="menu p-4 flex flex-col gap-5">
-          <li className="bg-deep-purple-300 w-full  p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
+
+          <li className="bg-deep-purple-300 w-full  rounded-xl hover:bg-deep-purple-400  duration-700 p-2">
             <NavLink
               to="/"
               className="flex justify-start items-center  flex- gap-2"
@@ -21,7 +28,7 @@ const Dashboard = () => {
               to="/dashboard/manage-users"
               className="flex justify-start items-center  flex- gap-2"
             >
-              <FaHome></FaHome>
+              <FaUser></FaUser>
               Users
             </NavLink>
           </li>
@@ -30,7 +37,7 @@ const Dashboard = () => {
               to="manage-courses"
               className="flex justify-start items-center  flex- gap-2"
             >
-              <FaCalendar></FaCalendar>
+              <SiCoursera></SiCoursera>
               Courses
             </NavLink>
           </li>
@@ -39,7 +46,7 @@ const Dashboard = () => {
               to="/dashboard/manage-category"
               className="flex justify-start items-center  flex- gap-2"
             >
-              <FaCalendar></FaCalendar>
+              <BiCategoryAlt></BiCategoryAlt>
               Categories
             </NavLink>
           </li>
@@ -48,7 +55,7 @@ const Dashboard = () => {
               to="/dashboard/payments"
               className="flex justify-start items-center  flex- gap-2"
             >
-              <FaShoppingCart></FaShoppingCart>
+              <LiaStripe></LiaStripe>
               Payments history
             </NavLink>
           </li>

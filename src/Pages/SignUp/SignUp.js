@@ -1,12 +1,11 @@
-import { Card, Input, Button, Typography } from "@material-tailwind/react";
-import { Link, useNavigate } from "react-router-dom";
 import { Player } from "@lottiefiles/react-lottie-player";
+import { Button, Card, Input, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
-import { useRegisterMutation } from "../../features/auth/authApi";
+import { Link, useNavigate } from "react-router-dom";
 import Error from "../../components/ui/Error";
+import { useRegisterMutation } from "../../features/auth/authApi";
 
 const SignUp = () => {
-
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -15,25 +14,25 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const [register,{ data, isLoading, error: responseError }]=useRegisterMutation()
+  const [register, { data, isLoading, error: responseError }] =
+    useRegisterMutation();
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (responseError?.data) {
-      setError(responseError.data);
+      setError(responseError?.data.error);
     }
 
     if (data?.token && data?.user) {
-      navigate("/signin");
+      navigate("/");
     }
   }, [data, responseError, navigate]);
 
-
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
-    if(password!==confirmPassword){
+    if (password !== confirmPassword) {
       setError("Password Must be same");
       return;
     }
@@ -42,11 +41,9 @@ const SignUp = () => {
       email,
       password,
       phoneNumber,
-      address
+      address,
     });
-  }
-
-  console.log(error)
+  };
 
   return (
     <div className=" mx-auto max-w-4xl max-h-4xl my-auto hover:shadow-2xl duration-200 shadow-lg py-10 px-16 mt-20 rounded-md">
@@ -58,7 +55,10 @@ const SignUp = () => {
           <Typography color="gray" className="mt-1 font-normal">
             Sign Up to get full access
           </Typography>
-          <form onSubmit={handleSubmit} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
+          <form
+            onSubmit={handleSubmit}
+            className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
+          >
             <div className="mb-4 flex flex-col gap-6">
               <Input
                 onChange={(e) => setFullName(e.target.value)}
@@ -70,6 +70,7 @@ const SignUp = () => {
 
               <Input
                 onChange={(e) => setEmail(e.target.value)}
+                type="email"
                 name="email"
                 size="lg"
                 required
@@ -95,7 +96,7 @@ const SignUp = () => {
               />
 
               <Input
-               onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 name="password"
                 type="password"
                 size="lg"
@@ -104,7 +105,7 @@ const SignUp = () => {
               />
 
               <Input
-               onChange={(e) => setConfirmPassword(e.target.value)}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 name="confirmPassword"
                 type="password"
                 size="lg"
@@ -114,7 +115,7 @@ const SignUp = () => {
             </div>
 
             <Button
-             disabled={isLoading}
+              disabled={isLoading}
               type="submit"
               color="amber"
               className="mt-6 mb-2 hover:text-white"
@@ -123,19 +124,18 @@ const SignUp = () => {
               Sign up
             </Button>
 
-              {error!=="" && <Error message={error}/>}
+            {error !== "" && <Error message={error} />}
 
             <Link to="/signin">
-              <Typography color="gray" className="mt-4 text-center font-medium transition-colors  flex gap-3">
+              <Typography
+                color="gray"
+                className="mt-4 text-center font-medium transition-colors  flex gap-3"
+              >
                 Already have an account?{" "}
-                
-                <p className="text-amber-300 hover:text-amber-700">
-                Sign In
-                </p>
+                <p className="text-amber-300 hover:text-amber-700">Sign In</p>
               </Typography>
             </Link>
           </form>
-          
         </Card>
         <div className="">
           <Player
