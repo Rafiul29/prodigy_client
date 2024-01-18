@@ -3,36 +3,60 @@ import {
   useGetAllUsersQuery,
   useUpdateUserRoleMutation,
 } from "../../../features/users/usersApi";
+import UsersTable from "./UsersTable";
+import Error from "../../ui/Error"
+import TableHeader from "../Table/TableTitle";
 
 const AllUsers = () => {
-  const { data: users, error: responseError } = useGetAllUsersQuery();
+
+  const { data: users,error,isLoading,isError} = useGetAllUsersQuery();
+
+
+
+  let content=null;
+  if(isLoading){
+    content=<Error message="Loading ...................."/>
+  }
+
+  if(!isLoading && !isError){
+    content=<Error message={error?.data?.message}/>
+  }
+
+  
 
   const [role, setRole] = useState("");
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
 
   const [updateUserRole, { data, error: updateError }] =
     useUpdateUserRoleMutation();
  
 
+
+
+
   const handleUpdateRole = (id) => {
-    setError("");
+    
     updateUserRole({
       userId: id,
       role,
     });
   };
 
-  if (responseError?.data?.message) {
-    return (
-      <div className="px-4 sm:px-6 lg:px-8 section-padding mt-20 wrapper text-center text-8xl">
-        {responseError?.data?.message} access denite
-      </div>
-    );
-  }
+  // if (responseError?.data?.message) {
+  //   return (
+  //     <div className="px-4 sm:px-6 lg:px-8 section-padding mt-20 wrapper text-center text-8xl">
+  //       {responseError?.data?.message} access denite
+  //     </div>
+  //   );
+  // }
 
   return (
     <>
-      <div className=" ">
+   <div className="flex flex-col gap-5">
+   <TableHeader text="All Users"/>
+    <UsersTable/>
+   </div>
+      {/* <div className=" ">
         <div className=" ">
           <div className=" ">
             <div className="sm:flex-auto">
@@ -136,7 +160,7 @@ const AllUsers = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

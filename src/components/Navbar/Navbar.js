@@ -168,6 +168,14 @@ const Navbar = () => {
                   </Popover.Panel>
                 </Transition>
               </Popover>
+              {!authChecked && (
+                      <Link
+                        to="/signin"
+                        className="border-2 px-5 py-1 border-deep-purple-500 text-lg font-semibold hover:text-white hover:bg-deep-purple-500 text-deep-purple-600 rounded-md duration-200 hover:cursor-pointer"
+                      >
+                        Sign In
+                      </Link>
+                    )}
             </div>
           </Popover.Group>
         </nav>
