@@ -1,16 +1,22 @@
 import { Card, Typography } from "@material-tailwind/react";
 import UserProfileUpdateFrom from "../../components/Users/UserProfile.js/UserProfileUpdateFrom";
 import Error from "../../components/ui/Error";
+import Loader from "../../components/ui/Loaders/Loader";
 import { useGetUsersProfileQuery } from "../../features/users/usersApi";
 
 const UpdateProfile = () => {
-  
   const { data: user, isError, isLoading } = useGetUsersProfileQuery();
 
   let content = null;
 
   if (isLoading) {
-    content = <Error message="Loading .........." />;
+    content = (
+      <>
+        <Loader />
+        <Loader />
+        <Loader />
+      </>
+    );
   }
   if (!isLoading && isError) {
     content = <Error message="User not found" />;

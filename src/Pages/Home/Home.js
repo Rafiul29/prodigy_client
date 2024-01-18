@@ -3,7 +3,6 @@ import MobileApp from "../../components/MobileApp/MobileApp";
 import TopBanner from "../../components/TopBanner/TopBanner";
 import AllCategories from "../../components/Users/Categories/AllCategories";
 
-
 const Home = () => {
   return (
     <div className="bg-white">
@@ -18,7 +17,7 @@ const Home = () => {
           <MarqueeComp />
         </div>
         {/* <Stats /> */}
-          <AllCategories/>
+        <AllCategories />
         <MobileApp />
       </div>
     </div>

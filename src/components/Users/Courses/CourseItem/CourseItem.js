@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetSingleCourseQuery } from "../../../../features/courses/coursesApi";
 import Error from "../../../ui/Error";
+import Loader from "../../../ui/Loaders/Loader";
 import CourseItemLeft from "./CourseItemLeft/CourseItemLeft";
 import CourseItemRight from "./CourseItemRight/CourseItemRight";
 
@@ -12,7 +13,13 @@ const CourseItem = () => {
   let content = null;
 
   if (isLoading) {
-    content = <Error message="Loading ............" />;
+    content = content = (
+      <>
+        <Loader />
+        <Loader />
+        <Loader />
+      </>
+    );
   }
   if (!isLoading && isError) {
     content = <Error message="There was an error!" />;
@@ -29,7 +36,6 @@ const CourseItem = () => {
       </div>
     );
   }
-  
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 section-padding mt-10 wrapper min-h-[calc(90vh-5rem)]">

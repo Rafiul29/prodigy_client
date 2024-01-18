@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import UserProfile from "../../components/Users/UserProfile.js/UserProfile";
 import Error from "../../components/ui/Error";
+import Loader from "../../components/ui/Loaders/Loader";
 import { userLoggedOut } from "../../features/auth/authSlice";
 import {
   useDeleteUserAccountMutation,
@@ -36,7 +37,13 @@ const Profile = () => {
   let content = null;
 
   if (isLoading) {
-    content = <Error message="Loading .........." />;
+    content = (
+      <>
+        <Loader />
+        <Loader />
+        <Loader />
+      </>
+    );
   }
   if (!isLoading && isError) {
     content = <Error message="User not found" />;

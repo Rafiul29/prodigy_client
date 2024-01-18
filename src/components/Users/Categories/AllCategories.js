@@ -1,6 +1,7 @@
 import React from "react";
 import { useGetAllCategoriesQuery } from "../../../features/category/categoryApi";
 import Error from "../../ui/Error";
+import Loader from "../../ui/Loaders/Loader";
 import CategorCard from "./CategoryCard";
 
 const AllCategories = () => {
@@ -10,14 +11,16 @@ const AllCategories = () => {
 
   if (isLoading) {
     content = (
-      <div className="max-w-7xl mx-auto my-32">
-        Loading .....................
-      </div>
+      <>
+        <Loader />
+        <Loader />
+        <Loader />
+      </>
     );
   }
 
   if (!isLoading && isError) {
-    content = <Error message="Loading ........." />;
+    content = <Error message="category not found" />;
   }
 
   if (!isLoading && !isError && categories?.length === 0) {
@@ -33,7 +36,11 @@ const AllCategories = () => {
   return (
     <div className="max-w-7xl mx-auto my-32">
       <h1 className="text-3xl font-bold text-center">Checkout our courses</h1>
-      <div className="grid grid-col-1 md:grid-cols-3 mt-10 gap-10 ">
+      <div
+        className={`${
+          isLoading ? "w-full" : "grid grid-col-1 md:grid-cols-3 mt-10 gap-10"
+        } `}
+      >
         {content}
       </div>
     </div>

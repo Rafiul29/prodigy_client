@@ -1,13 +1,13 @@
 import { FaRegEdit } from "react-icons/fa";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
-import { useGetAllCoursesQuery } from "../../../features/courses/coursesApi";
-import { currencyFormatter } from "../../../utils/currencyFormatter";
-import Error from "../../ui/Error";
-import Loader from "../../ui/Loaders/Loader";
-import TableData from "../Table/TableData";
-import TableHeader from "../Table/TableHeader";
-import { TableLinkData } from "../Table/TableLinkData";
+import { useGetAllCoursesQuery } from "../../../../features/courses/coursesApi";
+import { currencyFormatter } from "../../../../utils/currencyFormatter";
+import Error from "../../../ui/Error";
+import Loader from "../../../ui/Loaders/Loader";
+import TableData from "../../Table/TableData";
+import TableHeader from "../../Table/TableHeader";
+import { TableLinkData } from "../../Table/TableLinkData";
 
 const CoursesTable = () => {
   const { data: courses, isLoading, isError } = useGetAllCoursesQuery();

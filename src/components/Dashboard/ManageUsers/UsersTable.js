@@ -10,7 +10,7 @@ import TableHeader from "../Table/TableHeader";
 
 const UsersTable = () => {
   const { data: users, error, isLoading, isError } = useGetAllUsersQuery();
-  console.log(users?.length);
+
   // role updated
   const [role, setRole] = useState("");
 

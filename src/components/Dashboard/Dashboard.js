@@ -18,7 +18,7 @@ const Dashboard = () => {
           </li>
           <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
             <NavLink
-              to="/dashboard/users"
+              to="/dashboard/manage-users"
               className="flex justify-start items-center  flex- gap-2"
             >
               <FaHome></FaHome>
@@ -36,7 +36,7 @@ const Dashboard = () => {
           </li>
           <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
             <NavLink
-              to="/dashboard/reservation"
+              to="/dashboard/manage-category"
               className="flex justify-start items-center  flex- gap-2"
             >
               <FaCalendar></FaCalendar>

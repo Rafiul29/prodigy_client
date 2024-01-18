@@ -2,13 +2,14 @@ import React from "react";
 
 const Loader = () => {
   return (
-    <div className="animate-pulse">
-      <h1 className="text-xs text-slate-200 bg-slate-200">Loading...</h1>
-      <div className="mt-4 text-sm bg-slate-200 h-2"></div>
-      <div className="mt-1 text-sm bg-slate-200 h-2"></div>
-      <div className="mt-1 text-sm bg-slate-200 h-2"></div>
-      <div className="mt-1 text-sm bg-slate-200 h-2"></div>
-      <div className="mt-1 text-sm bg-slate-200 h-2 w-[70%]"></div>
+    <div className="animate-pulse min-w-full  mt-5 p-3">
+      <h1 className="text-sm text-slate-400 bg-gray-100  p-3">Loading...</h1>
+      <div className="mt-2 pb-4 flex items-center space-between border-b"></div>
+      <div className="mt-4 text-sm bg-gray-100 h-4  p-3"></div>
+      <div className="mt-1 text-sm bg-gray-100 h-4  p-3"></div>
+      <div className="mt-1 text-sm bg-gray-100 h-4 p3"></div>
+      <div className="mt-1 text-sm bg-gray-100 h-4  p-3"></div>
+      <div className="mt-1 text-sm bg-gray-100 h-4  p-3"></div>
     </div>
   );
 };

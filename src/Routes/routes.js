@@ -10,15 +10,16 @@ import UpdateProfile from "../Pages/Profile/UpdateProfile";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
 
-import AddCategory from "../components/Dashboard/Category/AddCategory";
 import CourseLearns from "../components/Dashboard/CourseLearns/CourseLearnsAdded";
 import CourseVideoAdded from "../components/Dashboard/CourseVideos/CourseVideosAdded";
-import AddCourses from "../components/Dashboard/Courses/AddCourses";
-import Allcourses from "../components/Dashboard/Courses/Allcourses";
 import CoursesIncludeAdded from "../components/Dashboard/CoursesIncludes/CoursesIncludeAdded";
+import AddCategory from "../components/Dashboard/ManageCategory/AddCategory";
+import AllCategory from "../components/Dashboard/ManageCategory/AllCategory/AllCategory";
+import AddCourses from "../components/Dashboard/ManageCourses/AddCourses";
+import Allcourses from "../components/Dashboard/ManageCourses/AllCourses/Allcourses";
+import AllUsers from "../components/Dashboard/ManageUsers/AllUsers";
 import PayamentDetails from "../components/Dashboard/PaymentDetails/PaymentDetail";
 import CourseRequirementAdded from "../components/Dashboard/Requirements/CourseRequirementAdded";
-import AllUsers from "../components/Dashboard/Users/AllUsers";
 
 import TakeThisCourse from "../components/Dashboard/TakeThisCourse/TakeThisCourse";
 import CourseItem from "../components/Users/Courses/CourseItem/CourseItem";
@@ -96,18 +97,21 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path: "/dashboard/manage-courses/",
+        path: "/dashboard/manage-courses",
         element: <Allcourses />,
-      },
-      {
-        path: "/dashboard/users",
-        element: <AllUsers />,
       },
       {
         path: "/dashboard/addcourses",
         element: <AddCourses />,
       },
-      
+      {
+        path: "/dashboard/manage-users",
+        element: <AllUsers />,
+      },
+      {
+        path: "/dashboard/manage-category",
+        element: <AllCategory />,
+      },
       {
         path: "/dashboard/addcategory",
         element: <AddCategory />,
