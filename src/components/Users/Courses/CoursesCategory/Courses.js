@@ -35,10 +35,7 @@ const Courses = () => {
   if (!isLoading && !isError && categoryRelatedCourses?.length > 0) {
     content = categoryRelatedCourses.map((course) => (
       <>
-        <CourseCard key={course._id} course={course} />
-        <CourseCard key={course._id} course={course} />
-        <CourseCard key={course._id} course={course} />
-        <CourseCard key={course._id} course={course} />
+        <CourseCard key={course._id} course={course}/>
       </>
     ));
   }

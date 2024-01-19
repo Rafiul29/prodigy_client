@@ -7,9 +7,12 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/FP log.png";
 import { userLoggedOut } from "../../features/auth/authSlice";
 import useAuth from "../../hooks/useAuth";
+import useDashBoardAuth from "../../hooks/useDashBoardAuthCheck";
 import NavbarCategory from "./NavbarCategory/NavbarCategory";
 
 const Navbar = () => {
+  const isDashBoard = useDashBoardAuth();
+
   const [hasScrolled, setHasScrolled] = useState(false);
 
   const authChecked = useAuth();
@@ -151,6 +154,19 @@ const Navbar = () => {
                         Orders
                       </Link>
                     </div>
+                   {isDashBoard &&(
+                     <div
+                     className="group relative flex items-center gap-x-5 rounded-lg p-2 text-md leading-6
+                        hover:text-blue-700"
+                   >
+                     <Link
+                       to="/dashboard/manage-courses"
+                       className="text-lg  hover:bg-gray-300 w-full p-1 rounded-sm"
+                     >
+                       Dashboard
+                     </Link>
+                   </div>
+                   )}
                     <div
                       className="group relative flex items-center gap-x-5 rounded-lg p-2 text-md leading-6
                          hover:text-blue-700 "
@@ -169,13 +185,13 @@ const Navbar = () => {
                 </Transition>
               </Popover>
               {!authChecked && (
-                      <Link
-                        to="/signin"
-                        className="border-2 px-5 py-1 border-deep-purple-500 text-lg font-semibold hover:text-white hover:bg-deep-purple-500 text-deep-purple-600 rounded-md duration-200 hover:cursor-pointer"
-                      >
-                        Sign In
-                      </Link>
-                    )}
+                <Link
+                  to="/signin"
+                  className="border-2 px-5 py-1 border-deep-purple-500 text-lg font-semibold hover:text-white hover:bg-deep-purple-500 text-deep-purple-600 rounded-md duration-200 hover:cursor-pointer"
+                >
+                  Sign In
+                </Link>
+              )}
             </div>
           </Popover.Group>
         </nav>
@@ -189,7 +205,7 @@ const Navbar = () => {
           <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-5 py-5 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <div className="flex lg:flex-1">
-                <img src={logo} alt='logo' className="" />
+                <img src={logo} alt="logo" className="" />
               </div>
               <button
                 type="button"

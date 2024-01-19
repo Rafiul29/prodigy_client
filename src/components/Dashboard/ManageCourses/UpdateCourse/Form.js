@@ -31,7 +31,7 @@ const Form = ({ course }) => {
   );
   const [description, setDescription] = useState(initialDescription);
   const [thumbnail, setThumbnail] = useState(initialThumbnail);
-  const [category, setCategory] = useState(initialCategory._id);
+  const [category, setCategory] = useState(initialCategory?._id);
   const [price, setPrice] = useState(initialPrice);
   const [duration, setDuration] = useState(initialDuration);
   const [rating, setRating] = useState(initialRating);
@@ -44,8 +44,7 @@ const Form = ({ course }) => {
 
   const [updateCourse, { data: resCourse, error, isLoading }] =
     useUpdateCourseMutation();
-  console.log(resCourse);
-  console.log(error?.data?.error);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     updateCourse({
@@ -154,9 +153,9 @@ const Form = ({ course }) => {
                 className="mt-1  block w-full rounded-md border-gray-300 py-2  pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm border"
               >
                 <option>--select category--</option>
-                {categories.length>0 && categories?.map((category) => (
+                {categories?.length>0 && categories?.map((category) => (
                   <option key={category?._id} value={category?._id}>
-                    {category.name}
+                    {category?.name}
                   </option>
                 ))}
               </select>

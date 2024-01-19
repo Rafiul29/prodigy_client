@@ -70,7 +70,7 @@ const CategoryTable = () => {
   }
 
   if (!isLoading && !isError && category?.length === 0) {
-    content = <Error message={"User not Found"} />;
+    content = <Error message={"Category not Found"} />;
   }
   if (!isLoading && !isError && category?.length > 0) {
     content = (
@@ -86,23 +86,23 @@ const CategoryTable = () => {
             </tr>
           </thead>
           <tbody>
-            {category &&
+            {category?.length>0 &&
               category.map((category, i) => (
                 <tr
-                  key={category._id}
+                  key={category?._id}
                   class="text-xs bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 "
                 >
                   <TableData data={1 + i} />
-                  <TableData data={category.name} />
-                  <TableData data={category.courses.length} />
+                  <TableData data={category?.name} />
+                  <TableData data={category?.courses.length} />
 
                   <TableLinkData
                     data={<FaRegEdit />}
-                    link={`/dashboard/update-category/${category._id}`}
+                    link={`/dashboard/update-category/${category?._id}`}
                   />
                   <td
                     aria-disabled={resLoading}
-                    onClick={() => handleDelete(category._id)}
+                    onClick={() => handleDelete(category?._id)}
                     class="text-red-400 px-5 text-2xl py-2 font-sans cursor-pointer"
                   >
                     <MdDelete />

@@ -10,8 +10,8 @@ export const CourseIncludes = ({ courseincludes }) => {
               key={inclues._id}
               className="flex flex-row items-center justify-start gap-2 bg-gray-200 p-1 rounded-md hover:bg-gray-300 duration-500"
             >
-              <IoMdCheckmarkCircleOutline className="text-deep-purple-900 text-xl" />
-              <p className="text-sm">{inclues.title}</p>
+              <IoMdCheckmarkCircleOutline className="text-deep-purple-900 text-xl overflow-hidden" />
+              <p className="text-sm overflow-hidden">{inclues.title}</p>
             </div>
           ))}
       </div>

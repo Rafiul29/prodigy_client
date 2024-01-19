@@ -101,7 +101,7 @@ const CoursesTable = () => {
                 >
                   <TableData data={1 + i} />
                   <TableData data={course.title} />
-                  <TableData data={course.category.name} />
+                  <TableData data={course.category?.name} />
                   <TableData data={currencyFormatter(course.price)} />
                   <TableData data={course.students} />
                   <TableData data={`${course.duration}h`} />
