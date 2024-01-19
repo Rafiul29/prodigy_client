@@ -20,6 +20,7 @@ const CategoryTable = () => {
     { data: resCategory, isLoading: resLoading },
   ] = useDeleteCategoryMutation();
 
+  // delete category
   const handleDelete = (cid) => {
     deleteCategory(cid);
   };
@@ -38,7 +39,7 @@ const CategoryTable = () => {
       });
     }
     if (resCategory?.error) {
-      toast.error(`${resCategory?.error}`, {
+      toast.warning(`${resCategory?.error}`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,

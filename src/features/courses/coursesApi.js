@@ -5,7 +5,7 @@ export const coursesApi = apiSlice.injectEndpoints({
     // endpoints here
     // get all courses
     getAllCourses: builder.query({
-      query: (setUlrl='') => `/courses/private/${setUlrl}`,
+      query: (setUlrl = "") => `/courses/private/${setUlrl}`,
     }),
     // get a single course
     getSingleCourse: builder.query({
@@ -32,8 +32,8 @@ export const coursesApi = apiSlice.injectEndpoints({
     }),
     // update courses
     updateCourse: builder.mutation({
-      query: ({ data, cid }) => ({
-        url: `/users/courses/${cid}`,
+      query: ({ cid, data }) => ({
+        url: `/courses/private/${cid}`,
         method: "PUT",
         body: data,
       }),
@@ -140,5 +140,5 @@ export const {
   useCourseLeanDeleteMutation,
   useRequirementAddedMutation,
   usePaymentDetailsAddedMutation,
-  useTakeThisCoursesAddedMutation
+  useTakeThisCoursesAddedMutation,
 } = coursesApi;

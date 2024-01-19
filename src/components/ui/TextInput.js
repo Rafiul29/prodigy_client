@@ -5,7 +5,7 @@ export default function TextInput({ title, ...attributes }) {
         {title}
       </label>
       <input
-      required
+        required
         className="mt-1 focus:deep-purple-500 focus:deep-purple-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
         {...attributes}
       />

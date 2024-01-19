@@ -27,6 +27,7 @@ import Courses from "../components/Users/Courses/CoursesCategory/Courses";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
 import UpdateCategory from "../components/Dashboard/ManageCategory/UpdateCategory/UpdateCategory";
+import UpdateCourse from "../components/Dashboard/ManageCourses/UpdateCourse/UpdateCourse";
 
 export const router = createBrowserRouter([
   {
@@ -104,6 +105,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/addcourses",
         element: <AddCourses />,
+      },
+      {
+        path: "/dashboard/update-course/:cid",
+        element: <UpdateCourse />,
       },
       {
         path: "/dashboard/manage-users",
