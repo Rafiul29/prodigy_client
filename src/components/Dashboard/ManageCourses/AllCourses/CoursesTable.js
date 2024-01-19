@@ -1,16 +1,54 @@
 import { FaRegEdit } from "react-icons/fa";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
-import { useGetAllCoursesQuery } from "../../../../features/courses/coursesApi";
+import {
+  useDeleteCourseMutation,
+  useGetAllCoursesQuery,
+} from "../../../../features/courses/coursesApi";
 import { currencyFormatter } from "../../../../utils/currencyFormatter";
 import Error from "../../../ui/Error";
 import Loader from "../../../ui/Loaders/Loader";
 import TableData from "../../Table/TableData";
 import TableHeader from "../../Table/TableHeader";
 import { TableLinkData } from "../../Table/TableLinkData";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const CoursesTable = () => {
   const { data: courses, isLoading, isError } = useGetAllCoursesQuery();
+
+  const [deleteCourse, { data: resCourse, error }] = useDeleteCourseMutation();
+  const handleDelete = (cid) => {
+    deleteCourse(cid);
+  };
+
+  // toast message
+  useEffect(()=>{
+      if(resCourse?._id){
+        toast.info("course delete successfully", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+      if(!resCourse?._id && error?.data){
+        toast.warning(`${error?.data?.message}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+  },[resCourse?._id,error?.data])
 
   // decide what to do render
   let content = null;
@@ -98,7 +136,10 @@ const CoursesTable = () => {
                     link={`/dashboard/update-course/${course._id}`}
                   />
 
-                  <td class="text-red-400 px-5 text-2xl py-2 font-sans cursor-pointer">
+                  <td
+                    onClick={() => handleDelete(course._id)}
+                    class="text-red-400 px-5 text-2xl py-2 font-sans cursor-pointer"
+                  >
                     <MdDelete />
                   </td>
                 </tr>
