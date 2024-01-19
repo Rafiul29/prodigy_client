@@ -1,7 +1,7 @@
 import React from "react";
 
 const CourseVideos = ({ videos }) => {
-  console.log(videos);
+  
   return (
     <div className="border-2 border-gray-100 p-3 flex flex-col gap-5">
       <div className="flex justify-between items-center">
