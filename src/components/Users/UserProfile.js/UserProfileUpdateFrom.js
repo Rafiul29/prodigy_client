@@ -1,12 +1,16 @@
 import { Button, Input } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
-import { useUpdateUserProfileMutation } from "../../../features/users/usersApi";
 import { useNavigate } from "react-router-dom";
+import { useUpdateUserProfileMutation } from "../../../features/users/usersApi";
 import Error from "../../ui/Error";
 
-const UserProfileUpdateFrom = ({user}) => {
-  
-  const {fullName:initialFullName,email:initialEmail,phoneNumber:initialPhoneNumber,address:initialAddess}=user;
+const UserProfileUpdateFrom = ({ user }) => {
+  const {
+    fullName: initialFullName,
+    email: initialEmail,
+    phoneNumber: initialPhoneNumber,
+    address: initialAddess,
+  } = user;
 
   const [fullName, setFullName] = useState(initialFullName);
   const [email, setEmail] = useState(initialEmail);
@@ -14,7 +18,8 @@ const UserProfileUpdateFrom = ({user}) => {
   const [address, setAddress] = useState(initialAddess);
   const [error, setError] = useState();
 
-  const [updateUserProfile, { data,error:responseError,isLoading }] = useUpdateUserProfileMutation();
+  const [updateUserProfile, { data, error: responseError, isLoading }] =
+    useUpdateUserProfileMutation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,7 +89,7 @@ const UserProfileUpdateFrom = ({user}) => {
       </div>
 
       <Button
-      disabled={isLoading}
+        disabled={isLoading}
         type="submit"
         color="purple"
         className="mt-6 hover:text-white"
@@ -92,7 +97,7 @@ const UserProfileUpdateFrom = ({user}) => {
       >
         Update profile
       </Button>
-    {error&& <Error message={error.message}/>}
+      {error && <Error message={error?.error} />}
     </form>
   );
 };
