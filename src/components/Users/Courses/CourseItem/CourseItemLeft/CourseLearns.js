@@ -10,7 +10,7 @@ const CourseLearns = ({ learns }) => {
           learns.map((learn, i) => (
             <div
               className={`${
-                i % 2
+                i % 2===0
                   ? "bg-deep-purple-500 px-4 py-2 rounded-lg text-gray-50 font-semibold text-center overflow-hidden text-md hover:bg-deep-purple-400 hover:text-gray-100 duration-500"
                   : "bg-purple-500 px-4 py-2 rounded-lg text-gray-50 font-semibold text-center overflow-hidden text-md hover:bg-purple-400 hover:text-gray-200 duration-500"
               }`}
