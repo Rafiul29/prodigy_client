@@ -1,5 +1,6 @@
 import MarqueeComp from "../../components/Marquee/Marquee";
 import MobileApp from "../../components/MobileApp/MobileApp";
+import Stats from "../../components/Stats/Stats";
 import TopBanner from "../../components/TopBanner/TopBanner";
 import AllCategories from "../../components/Users/Categories/AllCategories";
 
@@ -16,7 +17,7 @@ const Home = () => {
           </div>
           <MarqueeComp />
         </div>
-        {/* <Stats /> */}
+        <Stats />
         <AllCategories />
         <MobileApp />
       </div>

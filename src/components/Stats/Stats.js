@@ -11,7 +11,8 @@ const Stats = () => {
             <h1>Total Videos</h1>
           </div>
           <div className="text-5xl font-bold flex justify-center text-deep-purple-700">
-            <Number n={3000}></Number>
+            3000
+            {/* <Number n={3000}></Number> */}
             <span>+</span>
           </div>
         </div>
@@ -20,7 +21,8 @@ const Stats = () => {
             <h1>Total Students</h1>
           </div>
           <div className="text-5xl font-bold flex justify-center text-deep-purple-600">
-            <Number n={24000}></Number>
+            24000
+            {/* <Number n={24000}></Number> */}
             <span>+</span>
           </div>
         </div>
@@ -29,7 +31,8 @@ const Stats = () => {
             <h1>Successfully Hired </h1>
           </div>
           <div className="text-5xl font-bold flex justify-center text-deep-purple-500">
-            <Number n={17000}></Number>
+            17000
+            {/* <Number n={17000}></Number> */}
             <span>+</span>
           </div>
         </div>

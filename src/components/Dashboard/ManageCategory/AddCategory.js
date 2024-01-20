@@ -56,7 +56,7 @@ const AddCategory = () => {
                     <div className="col-span-6">
                       <TextInput
                         type="text"
-                        title="Category imgae"
+                        title="Category lottiefiles json link"
                         value={image}
                         onChange={(e) => setImage(e.target.value)}
                       />

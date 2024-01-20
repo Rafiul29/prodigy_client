@@ -7,12 +7,12 @@ const Number = ({ n }) => {
         to: { x: 100 },
     })
     
-    // const { number } = useSpring({
-    //     from: { number: 0 },
-    //     number: n,
-    //     delay: 200,
-    //     config: { mass: 1, tension: 10, friction: 5 }
-    // })
+    const { number } = useSpring({
+        from: { number: 0 },
+        number: n,
+        delay: 200,
+        config: { mass: 1, tension: 10, friction: 5 }
+    })
     
     return (
         <animated.div>{springs.to((n) => n.toFixed(0))}</animated.div>

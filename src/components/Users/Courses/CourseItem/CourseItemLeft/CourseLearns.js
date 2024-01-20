@@ -1,7 +1,7 @@
 import React from "react";
 
 const CourseLearns = ({ learns }) => {
-  console.log(learns);
+
   return (
     <div className="flex flex-col gap-2">
       <h2 className="text-4xl font-medium text-gray-800">What will Learns</h2>
