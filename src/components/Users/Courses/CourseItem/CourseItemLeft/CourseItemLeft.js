@@ -1,11 +1,12 @@
 import React from "react";
-import CourseDescription from "./CourseDescription";
-import CourseHeader from "./CourseHeader";
-import CourseInstructor from "./CourseInstructor";
-import CourseLearns from "./CourseLearns";
-import CourseVideos from "./CourseVideos";
-import Requirement from "./Requirements";
-import TakeThisCourse from "./TakeThisCourse";
+import CourseDescription from "./Components/CourseDescription";
+import CourseHeader from "./Components/CourseHeader";
+import CourseInstructor from "./Components/CourseInstructor";
+import CourseLearns from "./Components/CourseLearns";
+import CourseVideos from "./Components/CourseVideos";
+import Requirement from "./Components/Requirements";
+import TakeThisCourse from "./Components/TakeThisCourse";
+import Helplines from "./Components/Helplines";
 
 const CourseItemLeft = ({ course }) => {
   const {
@@ -17,6 +18,7 @@ const CourseItemLeft = ({ course }) => {
     whatYouWillLearns,
     requirements,
     whoShouldTakeThisCourse,
+    helpLines
   } = course;
   return (
     <div className="flex flex-col gap-10">
@@ -32,6 +34,7 @@ const CourseItemLeft = ({ course }) => {
       <CourseInstructor name={instructor_name} photo={instructor_photo} />
       <Requirement requirements={requirements} />
       <TakeThisCourse takeThisCourses={whoShouldTakeThisCourse} />
+      <Helplines helpLines={helpLines}/>
     </div>
   );
 };

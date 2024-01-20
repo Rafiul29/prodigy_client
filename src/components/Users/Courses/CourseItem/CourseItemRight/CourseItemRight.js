@@ -1,8 +1,8 @@
 import React from "react";
 import { currencyFormatter } from "../../../../../utils/currencyFormatter";
-import { CourseIncludes } from "./CourseIncludes";
-import Player from "./Palyer";
-import PayButton from "./PayButton";
+import { CourseIncludes } from "./components/CourseIncludes";
+import Player from "./components/Palyer";
+import PayButton from "./components/PayButton";
 
 const CourseItemRight = ({ course }) => {
   
