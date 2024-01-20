@@ -31,7 +31,7 @@ const CourseItemLeft = ({ course }) => {
       {/* course instructor */}
       <CourseInstructor name={instructor_name} photo={instructor_photo} />
       <Requirement requirements={requirements} />
-      <TakeThisCourse takeThisCourse={whoShouldTakeThisCourse} />
+      <TakeThisCourse takeThisCourses={whoShouldTakeThisCourse} />
     </div>
   );
 };

@@ -9,7 +9,7 @@ const Requirements = ({ requirements }) => {
           requirements.map((requirement) => (
             <h4
               key={requirement._id}
-              className="p-2 text-md tracking-wider hover:bg-purple-50/50 rounded-md duration-500"
+              className="p-2 text-md tracking-wider bg-gray-100 hover:bg-purple-50/50 rounded-md duration-500"
             >
               {requirement.title}
             </h4>
