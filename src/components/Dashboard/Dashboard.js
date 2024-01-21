@@ -52,7 +52,7 @@ const Dashboard = () => {
           </li>
           <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
             <NavLink
-              to="/dashboard/payments"
+              to="/dashboard/payment-history"
               className="flex justify-start items-center  flex- gap-2"
             >
               <LiaStripe></LiaStripe>

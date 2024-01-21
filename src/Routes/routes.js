@@ -28,6 +28,7 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
 import UpdateCategory from "../components/Dashboard/ManageCategory/UpdateCategory/UpdateCategory";
 import UpdateCourse from "../components/Dashboard/ManageCourses/UpdateCourse/UpdateCourse";
+import PaymentsHistory from "../components/Dashboard/PyamentsHistory/PaymentsHistory";
 
 export const router = createBrowserRouter([
   {
@@ -149,6 +150,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/course-take-this-added/:cid",
         element: <TakeThisCourse />,
+      },
+      {
+        path: "/dashboard/payment-history",
+        element: <PaymentsHistory />,
       },
     ],
   },
