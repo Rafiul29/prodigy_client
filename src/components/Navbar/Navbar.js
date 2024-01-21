@@ -112,15 +112,17 @@ const Navbar = () => {
               </Popover>
               {/* second */}
               <Popover className="relative">
-                <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-                  <div className="text-lg font-medium hover:text-deep-purple-500 hover:cursor-pointer">
-                    <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN3z1FtTdriea_p8EHVNlWcf9xTWfoYEadB3jTINw&s"
-                      className="h-10 w-10 rounded-full"
-                      alt=""
-                    />
-                  </div>
-                </Popover.Button>
+                {authChecked && (
+                  <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                    <div className="text-lg font-medium hover:text-deep-purple-500 hover:cursor-pointer">
+                      <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN3z1FtTdriea_p8EHVNlWcf9xTWfoYEadB3jTINw&s"
+                        className="h-10 w-10 rounded-full"
+                        alt=""
+                      />
+                    </div>
+                  </Popover.Button>
+                )}
 
                 <Transition
                   as={Fragment}
@@ -132,41 +134,46 @@ const Navbar = () => {
                   leaveTo="opacity-0 translate-y-1"
                 >
                   <Popover.Panel className="absolute -left-1 top-full z-10 mt-3  w-48 overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-gray-900/5">
-                    <div
-                      className="group relative flex items-center gap-x-5 rounded-lg p-2 text-md leading-6
+                    {authChecked && (
+                      <div
+                        className="group relative flex items-center gap-x-5 rounded-lg p-2 text-md leading-6
                          hover:text-blue-700"
-                    >
-                      <Link
-                        to="/profile"
-                        className="text-lg  hover:bg-gray-300 w-full p-1 rounded-sm"
                       >
-                        Profile
-                      </Link>
-                    </div>
-                    <div
-                      className="group relative flex items-center gap-x-5 rounded-lg p-2 text-md leading-6
-                         hover:text-blue-700"
-                    >
-                      <Link
-                        to="/orders"
-                        className="text-lg  hover:bg-gray-300 w-full p-1 rounded-sm"
-                      >
-                        Orders
-                      </Link>
-                    </div>
-                   {isDashBoard &&(
-                     <div
-                     className="group relative flex items-center gap-x-5 rounded-lg p-2 text-md leading-6
+                        <Link
+                          to="/profile"
+                          className="text-lg  hover:bg-gray-300 w-full p-1 rounded-sm"
+                        >
+                          Profile
+                        </Link>
+                      </div>
+                    )}
+                    {!isDashBoard && authChecked && (
+                      <div
+                        className="group relative flex items-center gap-x-5 rounded-lg p-2 text-md leading-6
                         hover:text-blue-700"
-                   >
-                     <Link
-                       to="/dashboard/manage-courses"
-                       className="text-lg  hover:bg-gray-300 w-full p-1 rounded-sm"
-                     >
-                       Dashboard
-                     </Link>
-                   </div>
-                   )}
+                      >
+                        <Link
+                          to="/user-dashboard"
+                          className="text-lg  hover:bg-gray-300 w-full p-1 rounded-sm"
+                        >
+                          Dashboard
+                        </Link>
+                      </div>
+                    )}
+
+                    {isDashBoard && (
+                      <div
+                        className="group relative flex items-center gap-x-5 rounded-lg p-2 text-md leading-6
+                        hover:text-blue-700"
+                      >
+                        <Link
+                          to="/dashboard/manage-courses"
+                          className="text-lg  hover:bg-gray-300 w-full p-1 rounded-sm"
+                        >
+                          Dashboard
+                        </Link>
+                      </div>
+                    )}
                     <div
                       className="group relative flex items-center gap-x-5 rounded-lg p-2 text-md leading-6
                          hover:text-blue-700 "

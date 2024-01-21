@@ -4,7 +4,7 @@ import Main from "../Layout/Main";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
 import NotFound from "../Pages/NotFound/NotFound";
-import Orders from "../Pages/Orders/Orders";
+import UserDashBoard from "../Pages/UserDashBoard/UserDashBoard";
 import Profile from "../Pages/Profile/Profile";
 import UpdateProfile from "../Pages/Profile/UpdateProfile";
 import SignIn from "../Pages/SignIn/SignIn";
@@ -21,14 +21,15 @@ import AllUsers from "../components/Dashboard/ManageUsers/AllUsers";
 import PayamentDetails from "../components/Dashboard/PaymentDetails/PaymentDetail";
 import CourseRequirementAdded from "../components/Dashboard/Requirements/CourseRequirementAdded";
 
+import UpdateCategory from "../components/Dashboard/ManageCategory/UpdateCategory/UpdateCategory";
+import UpdateCourse from "../components/Dashboard/ManageCourses/UpdateCourse/UpdateCourse";
+import PaymentsHistory from "../components/Dashboard/PyamentsHistory/PaymentsHistory";
 import TakeThisCourse from "../components/Dashboard/TakeThisCourse/TakeThisCourse";
 import CourseItem from "../components/Users/Courses/CourseItem/CourseItem";
 import Courses from "../components/Users/Courses/CoursesCategory/Courses";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
-import UpdateCategory from "../components/Dashboard/ManageCategory/UpdateCategory/UpdateCategory";
-import UpdateCourse from "../components/Dashboard/ManageCourses/UpdateCourse/UpdateCourse";
-import PaymentsHistory from "../components/Dashboard/PyamentsHistory/PaymentsHistory";
+import CheckoutSuccess from "../components/Users/CheckoutSuccess/CheckoutSuccess";
 
 export const router = createBrowserRouter([
   {
@@ -81,10 +82,18 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/orders",
+        path: "/user-dashboard",
         element: (
           <PrivateRoute>
-            <Orders />
+            <UserDashBoard />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/checkout-sccess",
+        element: (
+          <PrivateRoute>
+           <CheckoutSuccess/>
           </PrivateRoute>
         ),
       },
@@ -125,7 +134,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/update-category/:cid",
-        element: <UpdateCategory/>,
+        element: <UpdateCategory />,
       },
       {
         path: "/dashboard/course-add-video/:cid",
