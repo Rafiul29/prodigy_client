@@ -4,9 +4,9 @@ import Main from "../Layout/Main";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
 import NotFound from "../Pages/NotFound/NotFound";
-import UserDashBoard from "../Pages/UserDashBoard/UserDashBoard";
-import Profile from "../Pages/Profile/Profile";
-import UpdateProfile from "../Pages/Profile/UpdateProfile";
+import UserDashBoard from "../components/Users/UserDashBoard/UserDashBoard";
+
+import UpdateProfile from "../Pages/UserProfile.js/UserProfile";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
 
@@ -29,7 +29,9 @@ import CourseItem from "../components/Users/Courses/CourseItem/CourseItem";
 import Courses from "../components/Users/Courses/CoursesCategory/Courses";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
-import CheckoutSuccess from "../components/Users/CheckoutSuccess/CheckoutSuccess";
+import CheckoutSuccess from "../Pages/CheckoutSuccess/CheckoutSuccess";
+import Videos from "../components/Users/Vidoes/Videos";
+import UserProfile from "../Pages/UserProfile.js/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -69,7 +71,7 @@ export const router = createBrowserRouter([
         path: "/profile",
         element: (
           <PrivateRoute>
-            <Profile />
+            <UserProfile />
           </PrivateRoute>
         ),
       },
@@ -86,6 +88,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UserDashBoard />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/user-dashboard/course/videos/:cid",
+        element: (
+          <PrivateRoute>
+            <Videos />
           </PrivateRoute>
         ),
       },

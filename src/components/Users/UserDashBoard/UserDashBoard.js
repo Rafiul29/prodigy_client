@@ -1,8 +1,8 @@
 import React from "react";
-import Error from "../../components/ui/Error";
-import Loader from "../../components/ui/Loaders/Loader";
-import { useGetOrderExitingUserQuery } from "../../features/orders/ordersApi";
-import { useGetUsersProfileQuery } from "../../features/users/usersApi";
+import Error from "../../ui/Error";
+import Loader from "../../ui/Loaders/Loader";
+import { useGetOrderExitingUserQuery } from "../../../features/orders/ordersApi";
+import { useGetUsersProfileQuery } from "../../../features/users/usersApi";
 import EntrollCourses from "./EntrollCourses";
 
 const UserDashBoard = () => {
@@ -35,7 +35,7 @@ const UserDashBoard = () => {
   }
   return (
     <div className="px-4 sm:px-6 lg:px-8 section-padding mt-10 wrapper min-h-[calc(90vh-5rem)]">
-      <div className="lg:w-[50%] mx-auto">
+      <div className="lg:w-[60%] mx-auto">
         <div className="flex flex-col gap-5">
         <h2 className="text-3xl font-medium">
             {user?._id && (
