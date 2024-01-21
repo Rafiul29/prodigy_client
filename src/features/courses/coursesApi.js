@@ -2,18 +2,23 @@ import { apiSlice } from "../api/apiSlice";
 
 export const coursesApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    tagTypes: ["Courses", "Course"],
     // endpoints here
     // get all courses
     getAllCourses: builder.query({
       query: (setUlrl = "") => `/courses/private/${setUlrl}`,
+      keepUnusedDataFor: 600,
+      providesTags: ["Courses", "Course"],
     }),
     // get a single course
     getSingleCourse: builder.query({
       query: (cid) => `/courses/private/${cid}`,
+      providesTags: (result, error, arg) => [{ type: "Course", cid: arg }],
     }),
     // get all own a  courses
     getOwnCourses: builder.query({
       query: (cid) => `/courses/private/${cid}`,
+      providesTags: ["Courses", "Course"],
     }),
     // create a new courses
     createCourse: builder.mutation({
@@ -22,6 +27,7 @@ export const coursesApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      providesTags: (result, error, arg) => [{ type: "Course", id: arg }],
     }),
     // delete a courses
     deleteCourse: builder.mutation({
@@ -29,6 +35,10 @@ export const coursesApi = apiSlice.injectEndpoints({
         url: `/courses/private/${cid}`,
         method: "DELETE",
       }),
+      invalidatesTags: (result, error, arg) => [
+        "Courses",
+        { type: "Course", id: arg.id },
+      ],
     }),
     // update courses
     updateCourse: builder.mutation({
@@ -37,6 +47,10 @@ export const coursesApi = apiSlice.injectEndpoints({
         method: "PUT",
         body: data,
       }),
+      invalidatesTags: (result, error, arg) => [
+        "Courses",
+        { type: "Course", id: arg.id },
+      ],
     }),
 
     // course video api
@@ -47,6 +61,10 @@ export const coursesApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: (result, error, arg) => [
+        "Courses",
+        { type: "Course", id: arg.id },
+      ],
     }),
 
     // courseVideoDeleted: builder.mutation({
@@ -65,15 +83,20 @@ export const coursesApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      // providesTags: (result, error, arg) => [{ type: "Course", id: arg }],
     }),
     // delete course lean
-    courseLeanDelete: builder.mutation({
-      query: (data) => ({
-        url: `/courses/private/learn/delete`,
-        method: "DELETE",
-        body: data,
-      }),
-    }),
+    // courseLeanDelete: builder.mutation({
+    //   query: (data) => ({
+    //     url: `/courses/private/learn/delete`,
+    //     method: "DELETE",
+    //     body: data,
+    //   }),
+    //   invalidatesTags: (result, error, arg) => [
+    //     "Courses",
+    //     { type: "Course", id: arg.id },
+    //   ],
+    // }),
     // course include
     // add curse includes
     includesAdd: builder.mutation({
@@ -82,6 +105,10 @@ export const coursesApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: (result, error, arg) => [
+        "Courses",
+        { type: "Course", id: arg.id },
+      ],
     }),
     // course inclue delete
     // IncludesDelete: builder.mutation({
@@ -100,6 +127,10 @@ export const coursesApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: (result, error, arg) => [
+        "Courses",
+        { type: "Course", id: arg.id },
+      ],
     }),
     // course requirement delete
     // courseRequirementDelete: builder.mutation({
@@ -122,6 +153,10 @@ export const coursesApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: (result, error, arg) => [
+        "Courses",
+        { type: "Course", id: arg.id },
+      ],
     }),
   }),
 });

@@ -13,10 +13,7 @@ export const categoryApi = apiSlice.injectEndpoints({
     // get a single category
     getSingleCategory: builder.query({
       query: (cid) => `/categories/private/${cid}`,
-      invalidatesTags: (result, error, arg) => [
-        "Categories",
-        { type: "Category", id: arg.id },
-      ],
+      providesTags: (result, error, arg) => [{ type: "Category", cid: arg }],
     }),
 
     // get all own a  category
