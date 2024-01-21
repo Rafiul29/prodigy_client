@@ -1,5 +1,6 @@
 import { FaRegUser } from "react-icons/fa";
 const UserProfile = ({ user }) => {
+
   const { fullName, email, phoneNumber, address } = user;
   return (
     <div className="w-[50%] flex flex-col gap-5">

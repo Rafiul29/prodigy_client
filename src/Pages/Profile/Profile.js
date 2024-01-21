@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import UserProfile from "../../components/Users/UserProfile.js/UserProfile";
+import UserProfile from "../../components/Users/UserProfile/UserProfile";
 import Error from "../../components/ui/Error";
 import Loader from "../../components/ui/Loaders/Loader";
 import { userLoggedOut } from "../../features/auth/authSlice";
@@ -12,7 +12,7 @@ import {
 
 const Profile = () => {
   const { data: user, isError, isLoading } = useGetUsersProfileQuery();
-
+  console.log({user})
   const navigate = useNavigate();
 
   const [deleteUserAccount] = useDeleteUserAccountMutation();

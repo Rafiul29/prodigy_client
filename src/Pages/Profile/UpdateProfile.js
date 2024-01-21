@@ -1,8 +1,9 @@
 import { Card, Typography } from "@material-tailwind/react";
-import UserProfileUpdateFrom from "../../components/Users/UserProfile.js/UserProfileUpdateFrom";
-import Error from "../../components/ui/Error";
-import Loader from "../../components/ui/Loaders/Loader";
+import UserProfileUpdateFrom from "../../components/Users/UserProfile/UserProfileUpdateFrom";
+
 import { useGetUsersProfileQuery } from "../../features/users/usersApi";
+import Loader from "../../components/ui/Loaders/Loader";
+import Error from "../../components/ui/Error";
 
 const UpdateProfile = () => {
   const { data: user, isError, isLoading } = useGetUsersProfileQuery();

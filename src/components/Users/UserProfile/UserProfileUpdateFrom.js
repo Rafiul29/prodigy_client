@@ -1,8 +1,8 @@
 import { Button, Input } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUpdateUserProfileMutation } from "../../features/users/usersApi";
-import Error from "../../components/ui/Error";
+import { useUpdateUserProfileMutation } from "../../../features/users/usersApi";
+import Error from "../../ui/Error";
 
 const UserProfileUpdateFrom = ({ user }) => {
   const {
