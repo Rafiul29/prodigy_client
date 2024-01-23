@@ -41,7 +41,6 @@ const Profile = () => {
       <>
         <Loader />
         <Loader />
-        <Loader />
       </>
     );
   }
