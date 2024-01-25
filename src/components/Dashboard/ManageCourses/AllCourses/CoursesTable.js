@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import {
   useDeleteCourseMutation,
   useGetAllCoursesQuery,
+  useGetOwnCoursesQuery,
 } from "../../../../features/courses/coursesApi";
 import { currencyFormatter } from "../../../../utils/currencyFormatter";
 import Error from "../../../ui/Error";
@@ -15,7 +16,9 @@ import { useEffect } from "react";
 import { toast } from "react-toastify";
 
 const CoursesTable = () => {
-  const { data: courses, isLoading, isError } = useGetAllCoursesQuery();
+  // const { data: courses, isLoading, isError } = useGetAllCoursesQuery();
+    const { data: courses, isLoading, isError } = useGetOwnCoursesQuery();
+    console.log(courses)
 
   const [deleteCourse, { data: resCourse, error }] = useDeleteCourseMutation();
   const handleDelete = (cid) => {
@@ -55,8 +58,6 @@ const CoursesTable = () => {
   if (isLoading) {
     content = (
       <>
-        <Loader />
-        <Loader />
         <Loader />
         <Loader />
       </>

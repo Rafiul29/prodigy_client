@@ -17,7 +17,7 @@ export const coursesApi = apiSlice.injectEndpoints({
     }),
     // get all own a  courses
     getOwnCourses: builder.query({
-      query: (cid) => `/courses/private/${cid}`,
+      query: () => "/courses/private/own-courses",
       providesTags: ["Courses", "Course"],
     }),
     // create a new courses

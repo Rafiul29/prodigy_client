@@ -18,7 +18,7 @@ export const categoryApi = apiSlice.injectEndpoints({
 
     // get all own a  category
     getOwnCategory: builder.query({
-      query: (cid) => `/categories/private/${cid}`,
+      query: () => "/categories/private/own-category",
       providesTags: ["Categories", "Category"],
     }),
     // create a new category

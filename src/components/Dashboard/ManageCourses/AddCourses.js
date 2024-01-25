@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useCreateCourseMutation } from "../../../features/courses/coursesApi";
 import TextArea from "../../ui/TextArea";
 import TextInput from "../../ui/TextInput";
-import { useGetAllCategoriesQuery } from "../../../features/category/categoryApi";
+import {useGetOwnCategoryQuery } from "../../../features/category/categoryApi";
 import Success from "../../ui/Success";
 import Error from "../../ui/Error";
 
@@ -19,11 +19,13 @@ const AddCourses = () => {
   const [students, setStudents] = useState("");
   const [helpLines, setHelpLines] = useState("");
 
-  const {
-    data: categories,
-    error: responseError,
-    isLoading: fetchIsLoading,
-  } = useGetAllCategoriesQuery();
+  // const {
+  //   data: categories,
+  //   error: responseError,
+  //   isLoading: fetchIsLoading,
+  // } = useGetAllCategoriesQuery();
+
+  const { data: categories, isLoading: fetchIsLoading, error: responseError, }=useGetOwnCategoryQuery()
 
   const [createCourse, { data, isLoading }] = useCreateCourseMutation();
 

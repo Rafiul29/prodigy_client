@@ -17,7 +17,6 @@ const CourseVideoAdded = () => {
     setVideo_Link("");
   };
   const { cid } = useParams();
-  console.log(cid);
 
   
 

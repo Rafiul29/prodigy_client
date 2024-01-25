@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import {
   useDeleteCategoryMutation,
   useGetAllCategoriesQuery,
+  useGetOwnCategoryQuery,
 } from "../../../../features/category/categoryApi";
 import Error from "../../../ui/Error";
 import Loader from "../../../ui/Loaders/Loader";
@@ -13,7 +14,8 @@ import TableHeader from "../../Table/TableHeader";
 import { TableLinkData } from "../../Table/TableLinkData";
 
 const CategoryTable = () => {
-  const { data: category, isLoading, isError } = useGetAllCategoriesQuery();
+  // const { data: category, isLoading, isError } = useGetAllCategoriesQuery();
+  const { data: category, isLoading, isError}=useGetOwnCategoryQuery()
 
   const [
     deleteCategory,
