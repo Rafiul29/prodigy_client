@@ -16,7 +16,7 @@ const CourseItemRight = ({ course }) => {
         <h3 className="text-xl font-medium ">{course?.videos[0]?.name}</h3>
       </div>
       <div className="border-2 border-gray-100 p-3 flex flex-col gap-5">
-        <div className="flex flex-row justify-between items-center rounded-md">
+        <div className="flex flex-col gap-2 justify-between items-center rounded-md">
           <span className="text-deep-purple-600 font-semibold text-xl">
             {currencyFormatter(course.price)}
           </span>

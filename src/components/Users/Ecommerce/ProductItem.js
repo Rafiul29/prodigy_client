@@ -95,13 +95,13 @@ const ProductItem = () => {
                   </a>
                 </div>
               </div> */}
-               <div className="flex w-full gap-8">    
-            <PayButton course={product}/>
-          </div>
+              
             </div>
            
           </div>
-         
+          <div className="flex w-full gap-8">    
+            <PayButton course={product}/>
+          </div>
         </div>
       </div>
     );

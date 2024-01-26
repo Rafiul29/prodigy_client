@@ -10,7 +10,7 @@ export const ordersApi = apiSlice.injectEndpoints({
 
     // get a single course
     getOrderExitingUser: builder.query({
-      query: (cid) => `/orders/private/user-orders`,
+      query: () => `/orders/private/user-orders`,
     }),
 
     // create order

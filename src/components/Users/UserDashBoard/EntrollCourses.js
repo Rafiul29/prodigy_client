@@ -2,7 +2,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const EntrollCourses = ({ order }) => {
- 
+ console.log(order)
   return (
     <div className="border flex flex-col justify-center items-center  lg:grid md:grid-cols-7 lg:gap-2  gap-5 p-4 rounded-md bg-gray-100">
       <div className="md:col-span-2 overflow-hidden">
