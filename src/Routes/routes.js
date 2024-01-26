@@ -34,6 +34,7 @@ import Videos from "../components/Users/Vidoes/Videos";
 import UpdateProfile from "../Pages/Profile/UpdateProfile";
 import AllProducts from "../components/Dashboard/ManageProducts/AllProducts/AllProducts";
 import AddProduct from "../components/Dashboard/ManageProducts/AddProduct/AddProduct";
+import UpdateProduct from '../components/Dashboard/ManageProducts/UpdateProduct/UpdateProduct';
 
 export const router = createBrowserRouter([
   {
@@ -177,12 +178,16 @@ export const router = createBrowserRouter([
         element: <PaymentsHistory />,
       },
       {
-        path: "/dashboard/manage-product",
+        path: "/dashboard/manage-products",
         element: <AllProducts />,
       },
       {
         path: "/dashboard/add-product",
         element: <AddProduct />,
+      },
+      {
+        path: "/dashboard/update-product/:pid",
+        element: <UpdateProduct />,
       },
     ],
   },

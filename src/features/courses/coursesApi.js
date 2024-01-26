@@ -18,6 +18,7 @@ export const coursesApi = apiSlice.injectEndpoints({
     // get all own a  courses
     getOwnCourses: builder.query({
       query: () => "/courses/private/own-courses",
+      keepUnusedDataFor: 600,
       providesTags: ["Courses", "Course"],
     }),
     // create a new courses
@@ -27,7 +28,10 @@ export const coursesApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      providesTags: (result, error, arg) => [{ type: "Course", id: arg }],
+      invalidatesTags: (result, error, arg) => [
+        "Courses",
+        { type: "Course", id: arg.id },
+      ],
     }),
     // delete a courses
     deleteCourse: builder.mutation({

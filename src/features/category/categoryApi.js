@@ -19,6 +19,7 @@ export const categoryApi = apiSlice.injectEndpoints({
     // get all own a  category
     getOwnCategory: builder.query({
       query: () => "/categories/private/own-category",
+      keepUnusedDataFor: 600,
       providesTags: ["Categories", "Category"],
     }),
     // create a new category
@@ -28,7 +29,10 @@ export const categoryApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      providesTags: (result, error, arg) => [{ type: "Category", id: arg }],
+      invalidatesTags: (result, error, arg) => [
+        "Categories",
+        { type: "Category", id: arg.id },
+      ],
     }),
     // delete a category
     deleteCategory: builder.mutation({

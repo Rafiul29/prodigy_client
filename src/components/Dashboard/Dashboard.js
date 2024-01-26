@@ -52,7 +52,7 @@ const Dashboard = () => {
           </li>
           <li className="border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500 p-2 ">
             <NavLink
-              to="/dashboard/manage-product"
+              to="/dashboard/manage-products"
               className="flex justify-start items-center  flex- gap-2"
             >
               <BiCategoryAlt></BiCategoryAlt>
