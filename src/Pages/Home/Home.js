@@ -3,6 +3,7 @@ import MobileApp from "../../components/MobileApp/MobileApp";
 import Stats from "../../components/Stats/Stats";
 import TopBanner from "../../components/TopBanner/TopBanner";
 import AllCategories from "../../components/Users/Categories/AllCategories";
+import Ecommerce from "../../components/Users/Ecommerce/Ecommerce";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
         </div>
         <Stats />
         <AllCategories />
+        <Ecommerce/>
         <MobileApp />
       </div>
     </div>
