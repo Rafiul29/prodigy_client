@@ -34,7 +34,7 @@ const PayButton = ({ course }) => {
     <button
       disabled={isLoading}
       onClick={() => handleOrder(course)}
-      className="text-2xl  tracking-widest  font-medium bg-deep-purple-800 px-10 py-2 rounded-lg text-white hover:bg-deep-purple-600 duration-500"
+      className="rounded-md border border-transparent bg-deep-purple-500 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
     >
       BUY
     </button>

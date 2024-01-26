@@ -25,7 +25,7 @@ const UpdateForm = ({ product }) => {
   const [price, setPrice] = useState(inititalPrice);
   const [reviews, setReviews] = useState(initialReviews);
 
-  const [updateProduct, { data:resProduct, isError, isLoading }] =
+  const [updateProduct, { data: resProduct, isError, isLoading }] =
     useUpdateProductMutation();
 
   const handleSubmit = (e) => {
@@ -44,7 +44,7 @@ const UpdateForm = ({ product }) => {
   };
   // toast messsage;
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
     if (resProduct?._id) {
       toast.info("product update successfully", {
@@ -57,7 +57,7 @@ const UpdateForm = ({ product }) => {
         progress: undefined,
         theme: "light",
       });
-      navigate("/dashboard/manage-products")
+      navigate("/dashboard/manage-products");
     }
     if (!resProduct?._id && isError) {
       toast.error("category update not successfully", {
@@ -71,7 +71,7 @@ const UpdateForm = ({ product }) => {
         theme: "light",
       });
     }
-  }, [resProduct, isError,navigate]);
+  }, [resProduct, isError, navigate]);
   return (
     <section className="pt-6 mt-6 pb-16 min-h-[calc(100vh-5rem)]">
       <div className="max-w-7xl mx-auto px-5 lg:px-0">
@@ -144,16 +144,13 @@ const UpdateForm = ({ product }) => {
                 </div>
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                   <button
-                    // disabled={isLoading}
+                    disabled={isLoading}
                     type="submit"
                     className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500"
                   >
                     Save
                   </button>
                 </div>
-                {/* 
-                {data && <Success message="product was added successfully" />}
-            {data?.error && <Error message={data?.error} />} */}
               </div>
             </form>
           </div>

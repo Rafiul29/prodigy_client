@@ -35,6 +35,7 @@ import UpdateProfile from "../Pages/Profile/UpdateProfile";
 import AllProducts from "../components/Dashboard/ManageProducts/AllProducts/AllProducts";
 import AddProduct from "../components/Dashboard/ManageProducts/AddProduct/AddProduct";
 import UpdateProduct from '../components/Dashboard/ManageProducts/UpdateProduct/UpdateProduct';
+import ProductItem from "../components/Users/Ecommerce/ProductItem";
 
 export const router = createBrowserRouter([
   {
@@ -107,6 +108,14 @@ export const router = createBrowserRouter([
         element: (
           // <PrivateRoute>
            <CheckoutSuccess/>
+          // </PrivateRoute>
+        ),
+      },
+      {
+        path: "/product/:pid",
+        element: (
+          // <PrivateRoute>
+           <ProductItem/>
           // </PrivateRoute>
         ),
       },
