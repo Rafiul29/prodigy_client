@@ -5,6 +5,7 @@ import categorySliceReducer from "../features/category/categorySlice";
 import coursesSliceReducer from "../features/courses/coursesSlice";
 import usersSliceReducer from "../features/users/usersSlice";
 import ordersSliceReducer from "../features/orders/ordersSlice";
+import productsSliceReducer from "../features/products/productsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     category: categorySliceReducer,
     courses: coursesSliceReducer,
     orders:ordersSliceReducer,
+    products:productsSliceReducer
   },
   
   middleware: (getDefaultMiddlewares) =>

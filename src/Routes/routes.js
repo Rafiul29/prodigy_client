@@ -32,6 +32,7 @@ import PublicRoute from "./PublicRoute/PublicRoute";
 import CheckoutSuccess from "../Pages/CheckoutSuccess/CheckoutSuccess";
 import Videos from "../components/Users/Vidoes/Videos";
 import UpdateProfile from "../Pages/Profile/UpdateProfile";
+import AllProducts from "../components/Dashboard/ManageProducts/AllProducts/AllProducts";
 
 export const router = createBrowserRouter([
   {
@@ -173,6 +174,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/payment-history",
         element: <PaymentsHistory />,
+      },
+      {
+        path: "/dashboard/manage-product",
+        element: <AllProducts />,
       },
     ],
   },
