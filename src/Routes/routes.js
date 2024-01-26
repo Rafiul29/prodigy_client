@@ -31,7 +31,6 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import PublicRoute from "./PublicRoute/PublicRoute";
 import CheckoutSuccess from "../Pages/CheckoutSuccess/CheckoutSuccess";
 import Videos from "../components/Users/Vidoes/Videos";
-import UserProfile from "../components/Users/UserProfile/UserProfile";
 import UpdateProfile from "../Pages/Profile/UpdateProfile";
 
 export const router = createBrowserRouter([
