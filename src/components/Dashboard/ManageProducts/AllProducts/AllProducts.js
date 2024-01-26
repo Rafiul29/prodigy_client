@@ -9,9 +9,8 @@ const AllProducts = () => {
     <div className="flex flex-col gap-5">
     <div className="md:flex justify-between">
       <TableTitle text="All Products" />
-
       <Link
-        to="/dashboard/addproduct"
+        to="/dashboard/add-product"
         className=" flex justify-center items-center gap-1 text-sm font-semibold text-white bg-indigo-600 px-4 py-2 rounded-md cursor-pointer "
       >
         <span>

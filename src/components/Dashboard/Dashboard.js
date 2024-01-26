@@ -14,7 +14,7 @@ const Dashboard = () => {
               </div>
         <ul className="menu p-4 flex flex-col gap-5">
 
-          <li className="bg-deep-purple-300 w-full  rounded-xl hover:bg-deep-purple-400  duration-700 p-2">
+          <li className="border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500 p-2">
             <NavLink
               to="/"
               className="flex justify-start items-center  flex- gap-2"
@@ -23,7 +23,7 @@ const Dashboard = () => {
               Home
             </NavLink>
           </li>
-          <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
+          <li className="border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500 p-2">
             <NavLink
               to="/dashboard/manage-users"
               className="flex justify-start items-center  flex- gap-2"
@@ -32,7 +32,7 @@ const Dashboard = () => {
               Users
             </NavLink>
           </li>
-          <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
+          <li className="border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500 p-2 ">
             <NavLink
               to="manage-courses"
               className="flex justify-start items-center  flex- gap-2"
@@ -41,7 +41,7 @@ const Dashboard = () => {
               Courses
             </NavLink>
           </li>
-          <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
+          <li className="border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500 p-2 ">
             <NavLink
               to="/dashboard/manage-category"
               className="flex justify-start items-center  flex- gap-2"
@@ -50,7 +50,16 @@ const Dashboard = () => {
               Categories
             </NavLink>
           </li>
-          <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
+          <li className="border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500 p-2 ">
+            <NavLink
+              to="/dashboard/manage-product"
+              className="flex justify-start items-center  flex- gap-2"
+            >
+              <BiCategoryAlt></BiCategoryAlt>
+              Products
+            </NavLink>
+          </li>
+          <li className="border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500 p-2">
             <NavLink
               to="/dashboard/payment-history"
               className="flex justify-start items-center  flex- gap-2"
@@ -61,7 +70,7 @@ const Dashboard = () => {
           </li>
 
           <div className="divider"></div>
-          <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
+          <li className="border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500 p-2">
             <NavLink
               to="/"
               className="flex justify-start items-center  flex- gap-2"
@@ -70,7 +79,7 @@ const Dashboard = () => {
               Home
             </NavLink>
           </li>
-          <li className="bg-deep-purple-300   p-2 rounded-xl hover:bg-deep-purple-400   duration-700 ">
+          <li className="border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-deep-purple-600 hover:bg-deep-purple-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:deep-purple-500 p-2 ">
             <NavLink
               to="/"
               className="flex justify-start items-center  flex- gap-2"

@@ -33,6 +33,7 @@ import CheckoutSuccess from "../Pages/CheckoutSuccess/CheckoutSuccess";
 import Videos from "../components/Users/Vidoes/Videos";
 import UpdateProfile from "../Pages/Profile/UpdateProfile";
 import AllProducts from "../components/Dashboard/ManageProducts/AllProducts/AllProducts";
+import AddProduct from "../components/Dashboard/ManageProducts/AddProduct/AddProduct";
 
 export const router = createBrowserRouter([
   {
@@ -178,6 +179,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/manage-product",
         element: <AllProducts />,
+      },
+      {
+        path: "/dashboard/add-product",
+        element: <AddProduct />,
       },
     ],
   },
