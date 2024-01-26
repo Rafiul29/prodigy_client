@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useGetAllCategoriesQuery } from "../../../../features/category/categoryApi";
+import { useGetOwnCategoryQuery } from "../../../../features/category/categoryApi";
 import { useUpdateCourseMutation } from "../../../../features/courses/coursesApi";
 import TextArea from "../../../ui/TextArea";
 import TextInput from "../../../ui/TextInput";
@@ -38,10 +38,11 @@ const Form = ({ course }) => {
   const [students, setStudents] = useState(initialStudents);
   const [helpLines, setHelpLines] = useState(initialHelplines);
 
-  const {
-    data: categories
-  } = useGetAllCategoriesQuery();
+  // const {
+  //   data: categories
+  // } = useGetAllCategoriesQuery();
 
+  const { data: categories}=useGetOwnCategoryQuery()
   const [updateCourse, { data: resCourse, error, isLoading }] =
     useUpdateCourseMutation();
 

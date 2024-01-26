@@ -25,7 +25,7 @@ const AddCourses = () => {
   //   isLoading: fetchIsLoading,
   // } = useGetAllCategoriesQuery();
 
-  const { data: categories, isLoading: fetchIsLoading, error: responseError, }=useGetOwnCategoryQuery()
+  const { data: categories, isLoading: fetchIsLoading }=useGetOwnCategoryQuery()
 
   const [createCourse, { data, isLoading }] = useCreateCourseMutation();
 

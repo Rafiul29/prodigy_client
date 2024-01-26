@@ -4,7 +4,6 @@ import { MdDelete } from "react-icons/md";
 import { toast } from "react-toastify";
 import {
   useDeleteCategoryMutation,
-  useGetAllCategoriesQuery,
   useGetOwnCategoryQuery,
 } from "../../../../features/category/categoryApi";
 import Error from "../../../ui/Error";

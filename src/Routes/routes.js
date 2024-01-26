@@ -103,9 +103,9 @@ export const router = createBrowserRouter([
       {
         path: "/checkout-success",
         element: (
-          <PrivateRoute>
+          // <PrivateRoute>
            <CheckoutSuccess/>
-          </PrivateRoute>
+          // </PrivateRoute>
         ),
       },
       {

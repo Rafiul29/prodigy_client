@@ -161,6 +161,20 @@ const Navbar = () => {
                       </div>
                     )}
 
+                    {isDashBoard && authChecked && (
+                      <div
+                        className="group relative flex items-center gap-x-5 rounded-lg p-2 text-md leading-6
+                        hover:text-blue-700"
+                      >
+                        <Link
+                          to="/user-dashboard"
+                          className="text-lg  hover:bg-gray-300 w-full p-1 rounded-sm"
+                        >
+                          Order courses
+                        </Link>
+                      </div>
+                    )}
+
                     {isDashBoard && (
                       <div
                         className="group relative flex items-center gap-x-5 rounded-lg p-2 text-md leading-6

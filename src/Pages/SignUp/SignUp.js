@@ -24,9 +24,10 @@ const SignUp = () => {
       setError(responseError?.data.error);
     }
 
-    if (data?.token && data?.user) {
-      navigate("/");
+    if (data?.user) {
+      navigate("/signin");
     }
+   
   }, [data, responseError, navigate]);
 
   const handleSubmit = (e) => {
