@@ -41,5 +41,3 @@ const CourseVideos = ({ videos }) => {
 };
 
 export default CourseVideos;
-
-

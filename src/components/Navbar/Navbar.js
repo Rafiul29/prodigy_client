@@ -81,7 +81,10 @@ const Navbar = () => {
             </button>
           </div>
           <Popover.Group className="hidden lg:flex lg:gap-x-12">
-            <div className="flex gap-3 items-center">
+            <div className="flex gap-5 items-center">
+              <div className="text-lg font-medium  hover:text-deep-purple-700 hover:cursor-pointer py-5">
+                <Link to="/products">Arduino Materials</Link>
+              </div>
               {/* first */}
               <Popover className="relative">
                 <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
@@ -246,6 +249,10 @@ const Navbar = () => {
                   <hr />
                   <div className="text-base font-medium  hover:text-deep-purple-700 hover:cursor-pointer py-5">
                     Student Success
+                  </div>
+                  <hr />
+                  <div className="text-base font-medium  hover:text-deep-purple-700 hover:cursor-pointer py-5">
+                    <Link to="/products">Arduino Materials</Link>
                   </div>
                   <hr />
                   <Disclosure as="div" className="-mx-3">

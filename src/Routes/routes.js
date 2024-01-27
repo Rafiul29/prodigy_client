@@ -34,8 +34,9 @@ import Videos from "../components/Users/Vidoes/Videos";
 import UpdateProfile from "../Pages/Profile/UpdateProfile";
 import AllProducts from "../components/Dashboard/ManageProducts/AllProducts/AllProducts";
 import AddProduct from "../components/Dashboard/ManageProducts/AddProduct/AddProduct";
-import UpdateProduct from '../components/Dashboard/ManageProducts/UpdateProduct/UpdateProduct';
+import UpdateProduct from "../components/Dashboard/ManageProducts/UpdateProduct/UpdateProduct";
 import ProductItem from "../components/Users/Ecommerce/ProductItem";
+import Ecommerce from "../components/Users/Ecommerce/Ecommerce";
 
 export const router = createBrowserRouter([
   {
@@ -107,17 +108,17 @@ export const router = createBrowserRouter([
         path: "/checkout-success",
         element: (
           // <PrivateRoute>
-           <CheckoutSuccess/>
+          <CheckoutSuccess />
           // </PrivateRoute>
         ),
       },
       {
         path: "/product/:pid",
-        element: (
-          // <PrivateRoute>
-           <ProductItem/>
-          // </PrivateRoute>
-        ),
+        element: <ProductItem />,
+      },
+      {
+        path: "/products",
+        element: <Ecommerce />,
       },
       {
         path: "*",
